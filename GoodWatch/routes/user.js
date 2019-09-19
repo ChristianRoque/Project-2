@@ -10,6 +10,10 @@ const passport = require('passport');
 router.post('/signup', (req, res, next) => {
 	const username = req.body.username;
 	const password = req.body.password;
+	const email = req.body.email;
+	const profilePic = req.body.profilePic;
+	const theme = req.body.theme;
+	const blogurl = req.body.blogURL;
 
 	console.log(username);
 	console.log(password);
@@ -19,7 +23,11 @@ router.post('/signup', (req, res, next) => {
 
 	User.create({
 		username: username,
-		password: hash
+		password: hash,
+		email: email,
+		profilePic: profilePic,
+		theme: theme,
+		blogURL: blogurl
 	})
 		.then(() => {
 			res.redirect('/login');
