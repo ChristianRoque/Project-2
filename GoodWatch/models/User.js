@@ -3,36 +3,18 @@ const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
 	username: String,
-	password: String
+	password: String,
+	email: String,
+	password: String,
+	profilePic: String,
+	likes: Array,
+	theme: String,
+	blogURL: String,
+	interest: Array,
+	posts: { type: Schema.Types.ObjectId, ref: 'Blog' },
+	followers: [ { type: Schema.Types.ObjectId, ref: 'User' } ]
 });
 
 const User = mongoose.model('User', userSchema);
 
 module.exports = User;
-
-/ Users
-
-// username:
-// notrouble
-
-// email:
-// notrouble
-
-// password:
-// notrouble
-
-// profilePicture:
-// maybetrouble
-
-// theme:
-// notrouble
-
-// blogURL:
-// notrouble
-
-// interest: []
-// simpletrouble
-
-// posts: {}
-// followers:
-// HARDtrouble
