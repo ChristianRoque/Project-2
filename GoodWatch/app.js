@@ -17,7 +17,7 @@ const User = require('./models/User');
 const bcrypt = require('bcryptjs');
 
 mongoose
-	.connect('mongodb+srv://Ironhack:qawsed@cluster0-j5ze8.mongodb.net/test?retryWrites=true&w=majority', {
+	.connect(process.env.MONGODB_URI, {
 		useNewUrlParser: true
 	})
 	.then((x) => {
