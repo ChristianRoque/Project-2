@@ -1,5 +1,5 @@
 h3 {
-  background-color: #750808;
+  background-color: rgba(36, 36, 39, 0.9);
   color: white;
   margin: 0 auto; }
 
@@ -182,8 +182,8 @@ input {
   padding: 0px 15px 0px 15px;
   background: transparent;
   outline: none;
-  color: #726659;
-  border: solid 1px #b3aca7;
+  color: black;
+  border: solid 1px black;
   border-bottom: none;
   transition: all 0.3s ease-in-out;
   -webkit-transition: all 0.3s ease-in-out;
@@ -191,7 +191,7 @@ input {
   -ms-transition: all 0.3s ease-in-out; }
 
 input:hover {
-  background: #b3aca7;
+  background: #5e0909;
   color: #e2dedb; }
 
 textarea {
