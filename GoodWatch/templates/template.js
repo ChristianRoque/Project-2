@@ -154,7 +154,7 @@ module.exports = {
                           <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%">
                             <tr>
                               <td align="center" style="font-size:0px;padding:10px 25px;word-break:break-word;">
-                                <div style="font-family:Helvetica Neue;font-size:30px;line-height:1;text-align:center;color:white;"> THANK YOU  ${username} FOR SIGNING UP </div>
+                                <div style="font-family:Helvetica Neue;font-size:30px;line-height:1;text-align:center;color:white;"> Thank  ${username} for signing up! </div>
                               </td>
                             </tr>
                             <tr>
