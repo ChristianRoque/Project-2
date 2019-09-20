@@ -24,7 +24,7 @@
             <p class="desc-stat">Blogs</p>
           </div>
         </div>
-        <p class="desc">Hi ! My name is {{logged.username}} {{logged.about}}</p>
+        <p class="desc">Hi ! My name is {{User.username}} {{User.about}}</p>
         <div>
           <span class="follow">Follow</span>
         </div>
@@ -57,6 +57,7 @@
 
                         <form action="/comment-create/{{this._id}}" method="POST">
                         <input type="text" name="message">
+                        <input type="hidden" name="blogSite" value="{{this.author}}"`>
                         <button type="submit" >Submit</button>
                         </form>
                         {{#each this.comments}}
