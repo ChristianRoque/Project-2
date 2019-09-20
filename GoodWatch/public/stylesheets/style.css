@@ -1,3 +1,8 @@
+h3 {
+  background-color: #750808;
+  color: white;
+  margin: 0 auto; }
+
 .parallax {
   background-image: url("../images/parrallax.jpeg");
   min-height: 800px;
@@ -22,7 +27,7 @@
 
 .login {
   height: 100vh;
-  background: linear-gradient(45deg, rgba(16, 20, 41, 0.5), rgba(8, 30, 156, 0.7), rgba(58, 44, 252, 0.5), rgba(88, 193, 241, 0.5), rgba(120, 239, 255, 0.5)) 0 0/1000% no-repeat, url(https://images.pexels.com/photos/1092364/pexels-photo-1092364.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260) 0 0/cover no-repeat;
+  background: linear-gradient(45deg, rgba(0, 0, 0, 0.5), rgba(36, 36, 39, 0.7), rgba(96, 96, 97, 0.5), rgba(28, 32, 34, 0.5), rgba(0, 0, 0, 0.5)) 0 0/1000% no-repeat, url(https://images.pexels.com/photos/1092364/pexels-photo-1092364.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260) 0 0/cover no-repeat;
   -webkit-animation: gradientAnimation 40s ease infinite;
   animation: gradientAnimation 40s ease infinite; }
 
@@ -160,7 +165,6 @@ textarea:hover::focus:-ms-placeholder {
 
 header {
   position: relative;
-  margin: 100px 0 25px 0;
   font-size: 2.3em;
   text-align: center;
   letter-spacing: 7px; }
@@ -220,8 +224,7 @@ textarea:hover {
   color: #b3aca7;
   outline: none;
   cursor: pointer;
-  border: solid 1px #b3aca7;
-  border-top: none; }
+  border: solid 11px #b3aca7; }
 
 #submit:hover {
   color: #e2dedb; }
