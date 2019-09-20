@@ -1,2 +1,23 @@
+.parallax {
+  background-image: url("../images/parrallax.jpeg");
+  min-height: 800px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; }
+
+.parallax2 {
+  background-image: url("../images/second.jpeg");
+  min-height: 800px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; }
+
+.para {
+  height: 400px;
+  background-color: #1b1b1b;
+  color: white;
+  font-size: 36px; }
 
 /*# sourceMappingURL=style.css.map */
