@@ -17,7 +17,9 @@ const User = require('./models/User');
 const bcrypt = require('bcryptjs');
 
 mongoose
-	.connect('mongodb://localhost/goodwatch', { useNewUrlParser: true })
+	.connect('mongodb+srv://Ironhack:qawsed@cluster0-j5ze8.mongodb.net/test?retryWrites=true&w=majority', {
+		useNewUrlParser: true
+	})
 	.then((x) => {
 		console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`);
 	})
