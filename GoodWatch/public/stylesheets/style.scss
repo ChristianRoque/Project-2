@@ -220,3 +220,35 @@ h7 span {
     font-size: 40px;
     font-weight: 300;
 }
+
+/////////////////////////////NAVBAR BUTTON//////////////////////////////
+body {
+    text-align: center;
+}
+
+.box-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.box {
+    background: white;
+    width: 30%;
+    border-radius: 30px;
+    transition: .2s all;
+}
+
+.box-wrap:hover .box {
+    filter: blur(3px);
+    opacity: .5;
+    transform: scale(.98);
+    box-shadow: none;
+}
+
+.box-wrap:hover .box:hover {
+    transform: scale(1);
+    filter: blur(0px);
+    opacity: 1;
+    box-shadow: 0 8px 20px 0px rgba(0, 0, 0, 0.125);
+}
