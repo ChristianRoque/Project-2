@@ -430,3 +430,20 @@ textarea:hover {
 #submit:hover {
     color: #e2dedb;
 }
+
+.login-box {
+    width: 280px;
+    position: absolute;
+    ;
+    top: 40%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+}
+
+.login-box h1 {
+    float: left;
+    font-size: 40px;
+    border-bottom: 6px solid black;
+    margin-bottom: 50px;
+    padding: 13px 0;
+}
