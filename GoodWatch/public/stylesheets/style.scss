@@ -176,6 +176,12 @@ h3 {
     font-size: 36px;
 }
 
+@media only screen and (max-device-width: 1366px) {
+    .parallax {
+        background-attachment: scroll;
+    }
+}
+
 /////////////////////////////////////////LOGIN ANIMATIONS/////////////////////////////////////////////////////
 .login {
     height: 100vh;

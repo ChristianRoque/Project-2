@@ -25,6 +25,10 @@ h3 {
   color: white;
   font-size: 36px; }
 
+@media only screen and (max-device-width: 1366px) {
+  .parallax {
+    background-attachment: scroll; } }
+
 .login {
   height: 100vh;
   background: linear-gradient(45deg, rgba(0, 0, 0, 0.5), rgba(36, 36, 39, 0.7), rgba(96, 96, 97, 0.5), rgba(28, 32, 34, 0.5), rgba(0, 0, 0, 0.5)) 0 0/1000% no-repeat, url(https://images.pexels.com/photos/1092364/pexels-photo-1092364.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260) 0 0/cover no-repeat;
