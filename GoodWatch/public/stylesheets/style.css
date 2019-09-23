@@ -421,12 +421,12 @@ main {
 
 .follow {
   position: absolute;
-  right: 8%;
-  top: 35px;
-  font-size: 11pt;
+  right: 35%;
+  top: 60%;
+  font-size: 9pt;
   background-color: #003f92;
   color: #fff;
-  padding: 8px 15px;
+  padding: 6px 50px;
   cursor: pointer;
   transition: all .4s;
   font-family: 'Montserrat', sans-serif;
