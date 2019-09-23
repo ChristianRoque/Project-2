@@ -1,1 +1,64 @@
-You are logged in as {{logged.username}}
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+
+<div class="container">
+  <header>
+    <i class="fa fa-bars" aria-hidden="true"></i>
+  </header>
+  <main>
+    <div class="row">
+      <div class="left col-lg-4">
+        <div class="photo-left">
+          <img class="photo" src="https://images.pexels.com/photos/1097456/pexels-photo-1097456.jpeg?cs=srgb&dl=black-background-costume-dark-1097456.jpg&fm=jpg"/>
+         
+        </div>
+        <h4 class="name">{{logged.username}}</h4>
+        <p class="info">{{logged.email}}</p>
+        <div class="stats row">
+          <div class="stat col-xs-4" style="padding-right: 50px;">
+            <p class="number-stat">3,619</p>
+            <p class="desc-stat">Followers</p>
+          </div>
+          <div class="stat col-xs-4">
+            <p class="number-stat">42</p>
+            <p class="desc-stat">Following</p>
+          </div>
+          <div class="stat col-xs-4" style="padding-left: 50px;">
+            <p class="number-stat">38</p>
+            <p class="desc-stat">Blogs</p>
+          </div>
+        </div>
+        <p class="desc">Hi ! My name is {{logged.username}} {{logged.about}}</p>
+        <div class="social">
+          <a class="fa fa-facebook-square" aria-hidden="true" href="https://facebook.com"></a>
+          <i class="fa fa-twitter-square" aria-hidden="true"></i>
+        </div>
+      </div>
+      <div class="right col-lg-8">
+        
+        <span class="follow">Follow</span>
+        <div class="row gallery">
+          <div class="col-md-4">
+             <img src="https://image.noelshack.com/fichiers/2017/38/2/1505774813-photo4.jpg"/>
+          </div>
+          <div class="col-md-4">
+            <img src="https://image.noelshack.com/fichiers/2017/38/2/1505774814-photo5.jpg"/>
+          </div>
+          <div class="col-md-4">
+             <img src="https://image.noelshack.com/fichiers/2017/38/2/1505774814-photo6.jpg"/>
+          </div>
+          <div class="col-md-4">
+             <img src="https://image.noelshack.com/fichiers/2017/38/2/1505774817-photo1.jpg"/>
+          </div>
+          <div class="col-md-4">
+            <img src="https://image.noelshack.com/fichiers/2017/38/2/1505774815-photo2.jpg"/>
+          </div>
+          <div class="col-md-4">
+            <img src="https://image.noelshack.com/fichiers/2017/38/2/1505774816-photo3.jpg"/>
+          </div>
+        </div>
+      </div>
+  </main>
+</div>
