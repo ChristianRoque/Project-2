@@ -14,7 +14,6 @@ router.get('/', (req, res, next) => {
 });
 
 router.post('/signup', (req, res, next) => {
-<<<<<<< HEAD
 	let { email, subject, message } = req.body;
 
 	const username = req.body.username;
@@ -42,8 +41,7 @@ router.post('/signup', (req, res, next) => {
 		password: hash,
 		emaill: email,
 		profilePic: profilePic,
-		theme: theme,
-		blogURL: blogurl
+		about: about
 	});
 	transporter
 		.sendMail({
@@ -58,52 +56,6 @@ router.post('/signup', (req, res, next) => {
 		.catch((err) => {
 			next(err);
 		});
-=======
-    let { email, subject, message } = req.body;
-
-    const username = req.body.username;
-    const password = req.body.password;
-    const emaill = req.body.email;
-    const profilePic = req.body.profilePic;
-    const theme = req.body.theme;
-    const blogurl = req.body.blogURL;
-
-    console.log(username);
-    console.log(password);
-
-    const salt = bcrypt.genSaltSync(10);
-    const hash = bcrypt.hashSync(password, salt);
-
-    let transporter = nodemailer.createTransport({
-        service: 'Gmail',
-        auth: {
-            user: 'views.blogpost@gmail.com',
-            pass: 'Ms134life'
-        }
-    });
-    User.create({
-        username: username,
-        password: hash,
-        emaill: email,
-        profilePic: profilePic,
-        about: about,
-
-    })
-    transporter.sendMail({
-            from: '"VERIFY YOUR ACCOUNT" <views.blogpost@gmail.com>',
-            to: email,
-            subject: subject,
-            html: templates.templateExample(username),
-        })
-        .then(() => {
-            res.redirect('/login');
-        })
-        .catch((err) => {
-            next(err);
-        });
-
-
->>>>>>> 21bab2b52b15c9fc2af9a3933fc4e597a595d135
 });
 
 // //////////////////////////////// SIGN UP
