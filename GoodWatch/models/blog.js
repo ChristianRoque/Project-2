@@ -7,7 +7,6 @@ const blogSchema = new Schema({
 	title: String,
 	message: String,
 	author: { type: Schema.Types.ObjectId, ref: 'User' },
-	comments: { type: Schema.Types.ObjectId, ref: 'Comment' },
 	date: Date
 });
 
