@@ -114,4 +114,7 @@ app.use('/', index);
 const user = require('./routes/user');
 app.use('/', user);
 
+const blog = require('./routes/blog');
+app.use('/', blog);
+
 module.exports = app;

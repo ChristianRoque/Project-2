@@ -8,10 +8,8 @@ const userSchema = new Schema({
 	profilePic: String,
 	likes: Array,
 	theme: String,
-	about: String,
 	blogURL: String,
 	interest: Array,
-	posts: { type: Schema.Types.ObjectId, ref: 'Blog' },
 	followers: [ { type: Schema.Types.ObjectId, ref: 'User' } ]
 });
 

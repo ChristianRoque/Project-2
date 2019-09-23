@@ -75,12 +75,14 @@ body {
 .box-wrap {
   display: flex;
   align-items: center;
-  justify-content: center; }
+  justify-content: center;
+  margin-bottom: 1px;
+  padding-bottom: 1px; }
 
 .box {
   background: white;
-  width: 30%;
-  border-radius: 30px;
+  border-radius: 10px;
+  padding: 0px 10px;
   transition: .2s all; }
 
 .box-wrap:hover .box {
@@ -196,7 +198,7 @@ input {
   -ms-transition: all 0.3s ease-in-out; }
 
 input:hover {
-  background: #5e0909;
+  background: #0d3e5a;
   color: #e2dedb; }
 
 textarea {
@@ -272,7 +274,6 @@ textarea:hover {
   float: left;
   margin: 5px 10px; }
 
-HTML CSS Result EDIT ON html,
 body {
   background: #efefef;
   font-family: "Arial"; }
@@ -285,16 +286,16 @@ body {
   background-color: #fff;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.1); }
 
-header {
+.profile {
   background: #eee;
   background-image: url("https://images.pexels.com/photos/1304642/pexels-photo-1304642.jpeg?cs=srgb&dl=action-art-artsy-1304642.jpg&fm=jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  background-color: red;
+  background-color: white;
   height: 250px; }
 
-header i {
+.profile i {
   position: relative;
   cursor: pointer;
   right: -96%;
@@ -434,6 +435,9 @@ main {
 .follow:hover {
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2), 0 0 15px rgba(0, 0, 0, 0.2); }
 
+#icon {
+  text-decoration: none; }
+
 @media (max-width: 990px) {
   .nav {
     display: none; }
@@ -456,5 +460,95 @@ main {
   height: auto;
   cursor: pointer;
   max-width: 100%; }
+
+.dropbtn {
+  background-color: white;
+  color: #428bca;
+  padding: 16px;
+  font-size: 14px;
+  border: none; }
+
+.dropdown {
+  position: relative;
+  display: inline-block; }
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1; }
+
+.dropdown-content a {
+  background: white;
+  color: black;
+  padding: 6px 8px;
+  border-radius: 5px;
+  border-width: 10px;
+  text-decoration: none;
+  display: block; }
+
+.dropdown-content a:hover {
+  background-color: #ddd; }
+
+.dropdown:hover .dropdown-content {
+  display: block; }
+
+.dropdown:hover .dropbtn {
+  background-color: white; }
+
+#box-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+a#box.dropbtn {
+  color: #428bca;
+  padding: 0; }
+
+#box {
+  background: white;
+  width: 30%;
+  border-radius: 30px;
+  transition: .2s all; }
+
+#box-wrap:hover .box {
+  filter: blur(3px);
+  opacity: .5;
+  transform: scale(0.98);
+  box-shadow: none; }
+
+#box-wrap:hover .box:hover {
+  transform: scale(1);
+  filter: blur(0px);
+  opacity: 1;
+  box-shadow: 0 8px 20px 0px rgba(0, 0, 0, 0.125); }
+
+.search {
+  width: 1px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+  font-family: 'Lato', sans-serif;
+  font-size: 0.875em;
+  width: 100px;
+  height: 10px;
+  padding: 10px;
+  background: transparent;
+  outline: none;
+  color: black;
+  border: none;
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out; }
+
+.search:hover {
+  background: white;
+  color: black; }
+
+/* When the input field gets focus, change its width to 100% */
+.search:focus {
+  width: 100%; }
 
 /*# sourceMappingURL=style.css.map */

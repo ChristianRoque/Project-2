@@ -41,7 +41,8 @@ router.post('/signup', (req, res, next) => {
 		password: hash,
 		emaill: email,
 		profilePic: profilePic,
-		about: about
+		theme: theme,
+		blogURL: blogurl
 	});
 	transporter
 		.sendMail({
@@ -118,6 +119,12 @@ router.get('/logout', (req, res, next) => {
 // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% USER PAGES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 router.get('/profile', (req, res, next) => {
+	if (req.user) {
+		res.render('users/profile', { theUser: req.user });
+	} else {
+		res.redirect('/login');
+	}
+
 	if (req.user) {
 		res.render('users/profile');
 	} else {

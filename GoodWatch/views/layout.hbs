@@ -8,9 +8,10 @@
   <title>{{title}}</title>
   <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
-<body>
-
+<body class="theProfile">
+ 
  <div class="box-wrap">
+  {{#unless logged}}
   <div class="box">
    <a href="/" >HOME</a>
  </div>
@@ -19,10 +20,36 @@
   <div class="box">
     <a href="/login" >LOGIN</a>
  </div>
-    <div class="box">
-   <a href="/logout">LOGOUT</a>
-  </div>
+ <div class="box">
+   <input class ="search"type="text" name="search" placeholder="Search..">
+ </div>
+ {{/unless}}
+ {{#if logged}}
+ <div class="box">
+                <a href="/" >HOME</a>
+ </div>
+ <div class="box">
+   <input class ="search"type="text" name="search" placeholder="Search..">
+ </div>
+ 
+ <div class="box">
+                <a href="/logout">LOGOUT</a>
+ </div>
+
+  <div class="dropdown">
+        <a id="box" href="/profile" class="box">PROFILE</a>
+              <div class="dropdown-content">
+                    <a href="/">Create new Blog</a>
+                    <a href="">Edit Profile</a>
+                    <a href="#">Edit Account</a>
+                    
+              </div>
 </div>
+     
+ {{/if}}
+</div>
+
+ 
 
   {{!-- <div class="menu">
     <a href="/" class="menu-link">Home</a>
