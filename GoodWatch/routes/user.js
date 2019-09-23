@@ -125,7 +125,7 @@ router.get('/logout', (req, res, next) => {
 
 router.get('/profile', (req, res, next) => {
     if (req.user) {
-        res.render('users/profile');
+        res.render('users/profile', { theUser: req.user });
     } else {
         res.redirect('/login');
     }
