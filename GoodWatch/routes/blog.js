@@ -8,11 +8,11 @@ const Blog = require('../models/blog')
 // router.get('/blog', (req, res, next) => {
 //     res.render('blogs/new');
 // });
-router.get('/blog', (req, res, next) => {
+router.get('/blogs', (req, res, next) => {
     Blog.find()
         .then((allBlogs) => {
             console.log(allBlogs)
-            res.render('blog/index', { blogs: allBlogs })
+            res.render('blogs/index', { blogs: allBlogs })
         })
         .catch((err) => {
             next(err);
@@ -43,7 +43,7 @@ router.get('/blogs/new', (req, res, next) => {
         })
 })
 
-router.post('/blog/creation', (req, res, next) => {
+router.post('/blogs/creation', (req, res, next) => {
 
     let imageUrl = req.body.theimageUrl;
     let interest = req.body.theInterest
@@ -73,7 +73,7 @@ router.post('/blogs/delete/:id', (req, res, next) => {
 
     Blog.findByIdAndRemove(id)
         .then((result) => {
-            res.redirect('/blog')
+            res.redirect('/blogs')
         })
         .catch((err) => {
             next(err)
