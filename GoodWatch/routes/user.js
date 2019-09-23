@@ -44,8 +44,8 @@ router.post('/signup', (req, res, next) => {
         password: hash,
         emaill: email,
         profilePic: profilePic,
-        theme: theme,
-        blogURL: blogurl
+        about: about,
+
     })
     transporter.sendMail({
             from: '"VERIFY YOUR ACCOUNT" <views.blogpost@gmail.com>',
