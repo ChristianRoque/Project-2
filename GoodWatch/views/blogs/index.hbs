@@ -1,0 +1,13 @@
+<h1 class ="all">List of All Blogs</h1>
+
+{{#each blogs}}
+
+<h2><a href="/blogs/details/{{this.id}}"> 
+{{this.title}}
+</a></h2>
+<form action="/blogs/delete/{{this._id}}" method="POST">
+    <button class ="button">Remove Blog</button>
+</form>
+
+<a class="edit" href="/blogs/editblog/{{this._id}}">Edit Blog</a>
+{{/each}}
