@@ -111,7 +111,7 @@ app.use((req, res, next) => {
 const index = require('./routes/index');
 app.use('/', index);
 
-module.exports = app;
-
 const user = require('./routes/user');
 app.use('/', user);
+
+module.exports = app;

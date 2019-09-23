@@ -3,20 +3,62 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 const User = require('../models/User');
 const passport = require('passport');
-const nodemailer = require("nodemailer");
-const templates = require('../templates/template')
+const nodemailer = require('nodemailer');
+const templates = require('../templates/template');
 
 // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% USER AUTH %%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-
 /* GET home page */
 router.get('/', (req, res, next) => {
-    res.render('index');
+	res.render('index');
 });
 
-
 router.post('/signup', (req, res, next) => {
+<<<<<<< HEAD
+	let { email, subject, message } = req.body;
+
+	const username = req.body.username;
+	const password = req.body.password;
+	const emaill = req.body.email;
+	const profilePic = req.body.profilePic;
+	const theme = req.body.theme;
+	const blogurl = req.body.blogURL;
+
+	console.log(username);
+	console.log(password);
+
+	const salt = bcrypt.genSaltSync(10);
+	const hash = bcrypt.hashSync(password, salt);
+
+	let transporter = nodemailer.createTransport({
+		service: 'Gmail',
+		auth: {
+			user: 'views.blogpost@gmail.com',
+			pass: 'Ms134life'
+		}
+	});
+	User.create({
+		username: username,
+		password: hash,
+		emaill: email,
+		profilePic: profilePic,
+		theme: theme,
+		blogURL: blogurl
+	});
+	transporter
+		.sendMail({
+			from: '"VERIFY YOUR ACCOUNT" <views.blogpost@gmail.com>',
+			to: email,
+			subject: subject,
+			html: templates.templateExample(username)
+		})
+		.then(() => {
+			res.redirect('/login');
+		})
+		.catch((err) => {
+			next(err);
+		});
+=======
     let { email, subject, message } = req.body;
 
     const username = req.body.username;
@@ -61,8 +103,8 @@ router.post('/signup', (req, res, next) => {
         });
 
 
+>>>>>>> 21bab2b52b15c9fc2af9a3933fc4e597a595d135
 });
-
 
 // //////////////////////////////// SIGN UP
 // router.post('/signup', (req, res, next) => {
@@ -96,39 +138,49 @@ router.post('/signup', (req, res, next) => {
 // });
 
 router.get('/signup', (req, res, next) => {
-    res.render('users/signup');
+	res.render('users/signup');
 });
 
 ////////////////////////////////// LOGIN
 router.get('/login', (req, res, next) => {
-    res.render('users/login');
+	res.render('users/login');
 });
 
 router.post(
-    '/login',
-    passport.authenticate('local', {
-        successRedirect: '/profile',
-        failureRedirect: '/login',
-        failureFlash: true,
-        passReqToCallback: true
-    })
+	'/login',
+	passport.authenticate('local', {
+		successRedirect: '/profile',
+		failureRedirect: '/login',
+		failureFlash: true,
+		passReqToCallback: true
+	})
 );
 
 ///////////////////////////////////////// LOGOUT
 
 router.get('/logout', (req, res, next) => {
-    req.logOut();
-    res.redirect('/');
+	req.logOut();
+	res.redirect('/');
 });
 
 // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% USER PAGES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 router.get('/profile', (req, res, next) => {
+<<<<<<< HEAD
     if (req.user) {
         res.render('users/profile', { theUser: req.user });
     } else {
         res.redirect('/login');
     }
+=======
+	if (req.user) {
+		res.render('users/profile');
+	} else {
+		res.redirect('/login');
+	}
+>>>>>>> f3b424073651cbfc0046f0d3eded8fe0004625b5
 });
 
 module.exports = router;
+
+// start routes later tomorrow
