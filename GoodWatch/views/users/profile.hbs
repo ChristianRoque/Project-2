@@ -1,8 +1,3 @@
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-
-
 <div class="container">
   <header class="profile">
     <i class="fa fa-bars" aria-hidden="true"></i>
@@ -76,18 +71,49 @@
         <span class="close">&times;</span>
         <h1>TITLE</h1>
         <img id="img01" style="max-width: 100%">
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Assumenda impedit amet quos dignissimos minus iste dolore nam voluptate recusandae maxime facilis at doloremque non quae ratione, error asperiores vero eos.lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, fuga harum! Quidem, illo. Maiores dignissimos hic iure voluptatem iste rerum ducimus assumenda veniam fugiat obcaecati, aperiam harum similique id? Voluptates!lorem
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt perferendis saepe consequatur voluptas voluptate quo maiores voluptatum nulla ea, error officiis harum, illum vel, dolores temporibus perspiciatis labore molestias aut.
-
-
+        <p>{{message}}
         </p>
-
+        Comment 
+	      <input type="text" name="message">
+	      <button>Submit</button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Open modal for @mdo</button>
       </div>
     </div>
 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script type="text/javascript" src="script2.js"></script>
-    <script src="/javascripts/script.js"></script>
+
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Open modal for @mdo</button>
+
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Recipient:</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Message:</label>
+            <textarea class="form-control" id="message-text"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Send message</button>
+      </div>
+    </div>
+  </div>
+</div>
+  
 
 
 

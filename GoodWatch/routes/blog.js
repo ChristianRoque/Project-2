@@ -8,11 +8,11 @@ const Blog = require('../models/blog');
 // router.get('/blog', (req, res, next) => {
 //     res.render('blogs/new');
 // });
-router.get('/profile', (req, res, next) => {
+router.get('/blogs', (req, res, next) => {
     Blog.find()
         .then((allBlogs) => {
             console.log(allBlogs);
-            res.render('profile', { blogs: allBlogs });
+            res.render('/profile', { blogs: allBlogs });
         })
         .catch((err) => {
             next(err);
@@ -52,7 +52,7 @@ router.post('/new-blog', (req, res, next) => {
             date: new Date()
         })
         .then(() => {
-            res.redirect('/');
+            res.redirect('/profile');
         })
         .catch((err) => {
             next(err);
