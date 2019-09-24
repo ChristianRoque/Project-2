@@ -9,105 +9,104 @@ const Blog = require('../models/blog');
 //     res.render('blogs/new');
 // });
 router.get('/blogs', (req, res, next) => {
-    Blog.find()
-        .then((allBlogs) => {
-            console.log(allBlogs);
-            res.render('/profile', { blogs: allBlogs });
-        })
-        .catch((err) => {
-            next(err);
-        });
+	Blog.find()
+		.then((allBlogs) => {
+			res.render('blogs/index', { blogs: allBlogs });
+		})
+		.catch((err) => {
+			next(err);
+		});
 });
 
 router.get('/blogs/:id', (req, res, next) => {
-    let id = req.params.id;
+	let id = req.params.id;
 
-    Blog.findById(id)
-        .then((blogObject) => {
-            res.render('blogs/details', { theBlog: blogObject });
-        })
-        .catch((err) => {
-            next(err);
-        });
+	Blog.findById(id)
+		.populate('author')
+		.then((blogObject) => {
+			res.render('blogs/details', { theBlog: blogObject });
+		})
+		.catch((err) => {
+			next(err);
+		});
 });
 
 router.get('/new-blog', (req, res, next) => {
-    res.render('blogs/new');
-    console.log(req.user);
+	res.render('blogs/new');
 });
 
 router.post('/new-blog', (req, res, next) => {
-    let imageURL = req.body.imageURL;
-    let interest = req.body.interest;
-    let title = req.body.title;
-    let message = req.body.message;
-    let author = req.user.username;
+	let imageURL = req.body.imageURL;
+	let interest = req.body.interest;
+	let title = req.body.title;
+	let message = req.body.message;
+	let author = req.user.username;
 
-    Blog.create({
-            imageURL: imageURL,
-            interest: interest,
-            title: title,
-            message: message,
-            author: author,
-            date: new Date()
-        })
-        .then(() => {
-            res.redirect('/profile');
-        })
-        .catch((err) => {
-            next(err);
-        });
+	Blog.create({
+		imageURL: imageURL,
+		interest: interest,
+		title: title,
+		message: message,
+		author: req.user._id,
+		date: new Date()
+	})
+		.then((blog) => {
+			User.findByIdAndUpdate(req.user._id, { $push: { blogs: blog._id } }).then((user) => {
+				console.log(user);
+			});
+			res.redirect('/blogs');
+		})
+		.catch((err) => {
+			next(err);
+		});
 });
 
 router.post('/blogs/delete/:id', (req, res, next) => {
-    let id = req.params.id;
+	let id = req.params.id;
 
-    Blog.findByIdAndRemove(id)
-        .then((result) => {
-            res.redirect('/blogs');
-        })
-        .catch((err) => {
-            next(err);
-        });
+	Blog.findByIdAndRemove(id)
+		.then((result) => {
+			res.redirect('/blogs');
+		})
+		.catch((err) => {
+			next(err);
+		});
 });
 
 router.get('/blogs/editblog/:id', (req, res, next) => {
-    let id = req.params.id;
-    console.log(id);
+	let id = req.params.id;
 
-    Blog.findById(id)
-        .then((theBlog) => {
-            console.log(theBlog);
-            res.render('blogs/edit', { blog: theBlog });
-        })
-        .catch((err) => {
-            next(err);
-        });
+	Blog.findById(id)
+		.then((theBlog) => {
+			res.render('blogs/edit', { blog: theBlog });
+		})
+		.catch((err) => {
+			next(err);
+		});
 });
 
 router.post('/blogs/editblogs/:id', (req, res, next) => {
-    let id = req.params.id;
-    let imageURL = req.body.imageURL;
-    let interest = req.body.interest;
-    let title = req.body.title;
-    let message = req.body.message;
-    let author = req.user.username;
-    console.log(id);
+	let id = req.params.id;
+	let imageURL = req.body.imageURL;
+	let interest = req.body.interest;
+	let title = req.body.title;
+	let message = req.body.message;
+	let author = req.user.username;
 
-    Blog.findByIdAndUpdate(id, {
-            imageURL: imageURL,
-            interest: interest,
-            title: title,
-            message: message,
-            author: author,
-            date: new Date()
-        })
-        .then(() => {
-            res.redirect('/blogs');
-        })
-        .catch((err) => {
-            next(err);
-        });
+	Blog.findByIdAndUpdate(id, {
+		imageURL: imageURL,
+		interest: interest,
+		title: title,
+		message: message,
+		author: author,
+		date: new Date()
+	})
+		.then(() => {
+			res.redirect('/blogs');
+		})
+		.catch((err) => {
+			next(err);
+		});
 });
 
 module.exports = router;

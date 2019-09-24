@@ -6,7 +6,7 @@ const blogSchema = new Schema({
 	interest: String,
 	title: String,
 	message: String,
-	author: String,
+	author: { type: Schema.Types.ObjectId, ref: 'User' },
 	date: String
 });
 

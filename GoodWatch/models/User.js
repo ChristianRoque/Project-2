@@ -10,6 +10,7 @@ const userSchema = new Schema({
 	theme: String,
 	blogURL: String,
 	interest: Array,
+	blogs: [ { type: Schema.Types.ObjectId, ref: 'Blog' } ],
 	followers: [ { type: Schema.Types.ObjectId, ref: 'User' } ]
 });
 
