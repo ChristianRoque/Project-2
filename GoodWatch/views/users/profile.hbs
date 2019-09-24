@@ -65,55 +65,45 @@
       </div>
   </main>
 </div>
-    <!-- 1st IMAGE MODAL -->
-    <div id="modal01" class="modal" onclick="this.style.display='none'">
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <h1>TITLE</h1>
-        <img id="img01" style="max-width: 100%">
-        <p>{{message}}
-        </p>
-        Comment 
-	      <input type="text" name="message">
-	      <button>Submit</button>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Open modal for @mdo</button>
-      </div>
-    </div>
 
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Launch demo modal
+</button>
 
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Open modal for @mdo</button>
-
-
-
+<!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <form>
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Recipient:</label>
-            <input type="text" class="form-control" id="recipient-name">
-          </div>
-          <div class="form-group">
-            <label for="message-text" class="col-form-label">Message:</label>
-            <textarea class="form-control" id="message-text"></textarea>
-          </div>
-        </form>
+        ...
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Send message</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
 </div>
-  
+    <!-- 1st IMAGE MODAL -->
+    <div id="modal01" class="modal" onclick="">
+      <div class="modal-content">
+        <span class="close"  onclick="this.parentElement.parentElement.style.display='none'">&times;</span>
+        <h1>TITLE</h1>
+        <img id="img01" style="max-width: 100%">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas illo consectetur asperiores accusamus, labore veritatis earum tempore eaque facilis. Ipsum, placeat. Adipisci itaque voluptate commodi, consectetur eaque eos est reprehenderit.lorr Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio, consequatur non, culpa obcaecati fugiat dolorem hic officiis corrupti cum optio, unde delectus soluta porro quasi quisquam tempore illum totam aut! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Delectus, possimus? Saepe quidem ab pariatur nisi autem omnis doloremque magnam nulla quaerat, quis quasi debitis! Ad suscipit incidunt delectus cum laborum.
+        </p>
+        Comment 
+	      <input type="text" name="message">
+	      <button>Submit</button>
+      </div>
+    </div>
 
 
 
