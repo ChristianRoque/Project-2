@@ -12,7 +12,7 @@ router.get('/blogs', (req, res, next) => {
     Blog.find()
         .then((allBlogs) => {
             console.log(allBlogs);
-            res.render('/profile', { blogs: allBlogs });
+            res.render('blogs/index', { blogs: allBlogs });
         })
         .catch((err) => {
             next(err);
