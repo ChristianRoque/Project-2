@@ -2,7 +2,7 @@
 
 {{#each blogs}}
 
-<h2><a href="/blogs/{{this.id}}"> 
+<h2><a href="/blogs/{{this._id}}"> 
 {{this.title}}
 </a></h2>
 <form action="/blogs/delete/{{this._id}}" method="POST">

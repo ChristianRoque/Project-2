@@ -19,8 +19,8 @@ router.get('/blogs', (req, res, next) => {
 		});
 });
 
-router.get('/blogs/:theid', (req, res, next) => {
-	let id = req.params.theid;
+router.get('/blogs/:id', (req, res, next) => {
+	let id = req.params.id;
 
 	Blog.findById(id)
 		.then((blogObject) => {
@@ -73,9 +73,11 @@ router.post('/blogs/delete/:id', (req, res, next) => {
 
 router.get('/blogs/editblog/:id', (req, res, next) => {
 	let id = req.params.id;
+	console.log(id);
 
 	Blog.findById(id)
 		.then((theBlog) => {
+			console.log(theBlog);
 			res.render('blogs/edit', { blog: theBlog });
 		})
 		.catch((err) => {
@@ -83,13 +85,14 @@ router.get('/blogs/editblog/:id', (req, res, next) => {
 		});
 });
 
-router.post('/blogs/editblog/:id', (req, res, next) => {
+router.post('/blogs/editblogs/:id', (req, res, next) => {
 	let id = req.params.id;
 	let imageURL = req.body.imageURL;
 	let interest = req.body.interest;
 	let title = req.body.title;
 	let message = req.body.message;
 	let author = req.user.username;
+	console.log(id);
 
 	Blog.findByIdAndUpdate(id, {
 		imageURL: imageURL,
