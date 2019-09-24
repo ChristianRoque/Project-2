@@ -117,4 +117,7 @@ app.use('/', user);
 const blog = require('./routes/blog');
 app.use('/', blog);
 
+const comment = require('./routes/comment');
+app.use('/', comment);
+
 module.exports = app;

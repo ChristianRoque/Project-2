@@ -1,0 +1,12 @@
+Message
+ <form action="/comment" method="POST">
+  <input type="text" name="message">
+  <button type="submit" >Submit</button>
+  </form>
+
+  {{#each results}}
+  <p>{{this.message}}</p>
+  <form action="/delete-comment/{{this._id}}" method="POST" >
+    <button>Delete</button>
+  </form>
+  {{/each}}

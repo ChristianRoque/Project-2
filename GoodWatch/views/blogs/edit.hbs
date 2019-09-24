@@ -1,23 +1,12 @@
-<form action="/blogs/edit/:id" method="POST">
+<form action="/blogs/editblogs/{{blog._id}}" method="POST" >
+	imageURL 
+  <input type="text" name="imageURL">
+	interest 
+  <input type="text" name="interest">
 
-
-<p>Title</p>
-<input type="text" name="title">
-
-<br>
-<p>imgUrl</p>
-<input type="text" name="imageURL">
-
-
-
-<p>Interest</p>
-<input type="text" name="interest">
-
-
-<p>Message</p>
-<input type="text" name="message">
-
-
-<button class="button">Save</button>
-
+	title 
+	<input type="text" name="title">
+	message 
+	<input type="text" name="message">
+	<button>Submit</button>
 </form>
