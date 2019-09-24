@@ -19,7 +19,3 @@ window.onclick = function(event) {
 		modal.style.display = 'none';
 	}
 };
-
-function close() {
-	modal.style.display = 'none';
-}
