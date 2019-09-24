@@ -60,37 +60,6 @@ router.post('/signup', (req, res, next) => {
 		});
 });
 
-// //////////////////////////////// SIGN UP
-// router.post('/signup', (req, res, next) => {
-//     const username = req.body.username;
-//     const password = req.body.password;
-//     const email = req.body.email;
-//     const profilePic = req.body.profilePic;
-//     const theme = req.body.theme;
-//     const blogurl = req.body.blogURL;
-
-//     console.log(username);
-//     console.log(password);
-
-//     const salt = bcrypt.genSaltSync(10);
-//     const hash = bcrypt.hashSync(password, salt);
-
-//     User.create({
-//             username: username,
-//             password: hash,
-//             email: email,
-//             profilePic: profilePic,
-//             theme: theme,
-//             blogURL: blogurl
-//         })
-//         .then(() => {
-//             res.redirect('/login');
-//         })
-//         .catch((err) => {
-//             next(err);
-//         });
-// });
-
 router.get('/signup', (req, res, next) => {
 	res.render('users/signup');
 });
