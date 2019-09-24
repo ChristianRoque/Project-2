@@ -9,7 +9,7 @@ const userSchema = new Schema({
     likes: Array,
     theme: String,
     blogURL: String,
-    blog: [{ type: Schema.Types.ObjectId, ref: 'Blog' }],
+    blogs: [{ type: Schema.Types.ObjectId, ref: 'Blog' }],
     interest: Array,
     followers: [{ type: Schema.Types.ObjectId, ref: 'User' }]
 });
