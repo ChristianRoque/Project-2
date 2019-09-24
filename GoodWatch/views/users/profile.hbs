@@ -66,9 +66,9 @@
   </main>
 </div>
     <!-- 1st IMAGE MODAL -->
-    <div id="modal01" class="modal" onclick="this.style.display='none'">
+    <div id="modal01" class="modal" >
       <div class="modal-content">
-        <span class="close">&times;</span>
+        <span onclick="close()" class="close">Close</span>
         <h1>TITLE</h1>
         <img id="img01" style="max-width: 100%">
         <p>{{message}}
@@ -90,7 +90,6 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">New message</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>

@@ -332,7 +332,7 @@ main {
   position: absolute;
   right: calc(50% - 70px);
   top: 75px;
-  background-color: #FFC107;
+  background-color: #ffc107;
   border: 3px solid #fff; }
 
 @media (max-width: 990px) {
@@ -667,5 +667,8 @@ a#box.dropbtn {
     margin-bottom: 1rem; }
   .modal-content {
     width: 100%; } }
+
+.image-modal {
+  width: 100% !important; }
 
 /*# sourceMappingURL=style.css.map */
