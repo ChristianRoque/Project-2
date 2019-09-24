@@ -43,6 +43,7 @@ router.post('/signup', (req, res, next) => {
         profilePic: profilePic,
         theme: theme,
         blogURL: blogurl,
+        blogs: []
     });
     transporter
         .sendMail({
@@ -89,17 +90,37 @@ router.get('/logout', (req, res, next) => {
 // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% USER PAGES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 router.get('/profile', (req, res, next) => {
-    if (req.user) {
-        res.render('users/profile', { theUser: req.user });
-    } else {
-        res.redirect('/login');
-    }
+    User.findById(req.user._id).populate('blogs').then((user) => {
+        console.log(user);
+        if (req.user) {
+            res.render('users/profile', { theUser: user });
+        } else {
+            res.redirect('/login');
+        }
+    });
+});
 
-    if (req.user) {
-        res.render('users/profile');
-    } else {
-        res.redirect('/login');
-    }
+router.get('/settings', (req, res, next) => {
+    res.render('users/edit-account');
+});
+
+router.post('/settings', (req, res, next) => {
+    const username = req.body.username;
+    const password = req.body.password;
+    const email = req.body.email;
+    const profilePic = req.body.profilePic;
+    const theme = req.body.theme;
+    const blogurl = req.body.blogURL;
+
+    User.findByIdAndUpdate(req.user._id, {
+        username: username,
+        email: email,
+        profilePic: profilePic,
+        theme: theme,
+        blogURL: blogurl
+    }).then((well) => {
+        res.redirect('/profile');
+    });
 });
 
 module.exports = router;
