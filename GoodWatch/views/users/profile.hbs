@@ -53,7 +53,20 @@
                         <button type="submit" >Submit</button>
                         </form>
                         {{#each this.comments}}
-                           <p>{{this.message}}</p>
+                             <p>{{this.message}}</p>
+                              <form action="/delete-comment/{{this._id}}" method="POST" >
+                                <button>Delete</button>
+                              </form>
+                              <form action="/edit-comment/{{this._id}}" method="POST">
+                              <button type="submit">Edit</button>
+                              </form>
+
+                              {{#if this.editable}}
+                              <form action="/edit/{{this._id}}" method="POST">
+                              <input type="text" name="messageUpdated" value="{{this.nessage}}">
+                                <button>Submit</button>
+                              </form>
+                              {{/if}}
                         {{/each}}
 
                       </div>
