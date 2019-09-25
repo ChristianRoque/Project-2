@@ -274,10 +274,6 @@ textarea:hover {
   float: left;
   margin: 5px 10px; }
 
-body {
-  background: #efefef;
-  font-family: "Arial"; }
-
 .container {
   max-width: 1250px;
   margin: 30px auto 30px;
