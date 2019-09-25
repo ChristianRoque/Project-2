@@ -1,13 +1,12 @@
 <div class="container">
-  <header class="profile">
+  <img src="{{logged.profilePic}}"class="profile"></img>
     <i class="fa fa-bars" aria-hidden="true"></i>
   </header>
   <main>
     <div class="row">
       <div class="left col-lg-4">
         <div class="photo-left">
-          <img class="photo" src="https://images.pexels.com/photos/1097456/pexels-photo-1097456.jpeg?cs=srgb&dl=black-background-costume-dark-1097456.jpg&fm=jpg"/>
-         
+          <img class="photo" src="{{logged.profilePic}}"/>
         </div>
         <h4 class="name">{{logged.username}}</h4>
         <p class="info">{{logged.email}}</p>
@@ -36,12 +35,26 @@
         </div>
       </div>
       <div class="right col-lg-8">
-        
-        
-        <div class="row gallery">
 
+         <div class="row gallery">
+             <div class="row gallery">
           {{#each theUser.blogs}}
-          <p>{{this}}</p>
+           <div class="col-md-4">
+             <img onClick="onClick(this)"src="{{this.imageURL}}"/>
+               
+          
+
+
+                  <div id="modal01" class="modal" onclick="">
+                      <div class="modal-content">
+                          <h1>{{this.title}}</h1>
+                        <span class="close"  onclick="this.parentElement.parentElement.style.display='none'">&times;</span>
+                        <img src="{{this.imageURL}} "id="img01" style="max-width: 100%">
+                        <p>{{this.message}}</p>
+                      
+                      </div>
+                    </div>
+               </div>
           {{/each}}
 
         </div>
@@ -50,12 +63,13 @@
 </div>
 
 
-<!-- Modal -->
+{{!-- <!-- Modal -->
+{{#each theUser}}
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">{{this.title}}</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -64,17 +78,25 @@
     </div>
   </div>
 </div>
+
+{{/each}} --}}
     <!-- 1st IMAGE MODAL -->
+    {{!-- {{#each theUser.blogs}}
     <div id="modal01" class="modal" onclick="">
       <div class="modal-content">
+          <h1>{{this.title}}</h1>
+
         <span class="close"  onclick="this.parentElement.parentElement.style.display='none'">&times;</span>
-        <h1>TITLE</h1>
         <img id="img01" style="max-width: 100%">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas illo consectetur asperiores accusamus, labore veritatis earum tempore eaque facilis. Ipsum, placeat. Adipisci itaque voluptate commodi, consectetur eaque eos est reprehenderit.lorr Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio, consequatur non, culpa obcaecati fugiat dolorem hic officiis corrupti cum optio, unde delectus soluta porro quasi quisquam tempore illum totam aut! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Delectus, possimus? Saepe quidem ab pariatur nisi autem omnis doloremque magnam nulla quaerat, quis quasi debitis! Ad suscipit incidunt delectus cum laborum.
+        <p>{{this.message}}
         </p>
         Comment 
+        <form action="/comment/{{this.id}}">
 	      <input type="text" name="message">
-	      <button onclick="this.parentElement.parentElement.style.display='none'">Submit</button>
+	      <button>Submit</button>
+        </form>
       </div>
     </div>
+
+    {{/each}} --}}
 {{!-- comment --}}

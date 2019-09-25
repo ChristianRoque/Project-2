@@ -288,12 +288,12 @@ body {
 
 .profile {
   background: #eee;
-  background-image: url("https://images.pexels.com/photos/1304642/pexels-photo-1304642.jpeg?cs=srgb&dl=action-art-artsy-1304642.jpg&fm=jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   background-color: white;
-  height: 250px; }
+  height: 250px;
+  width: 80%; }
 
 .profile i {
   position: relative;
