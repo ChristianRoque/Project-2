@@ -34,29 +34,27 @@
           <a id="icon"class="fa fa-twitter-square" aria-hidden="true"href="https://twitter.com"></a>
         </div>
       </div>
-      <div class="right col-lg-8">
 
+
+
+      
+      <div class="right col-lg-8">
          <div class="row gallery">
              <div class="row gallery">
           {{#each theUser.blogs}}
            <div class="col-md-4">
              <img onClick="onClick(this)"src="{{this.imageURL}}"/>
-               
-          
-
-
                   <div id="modal01" class="modal" onclick="">
                       <div class="modal-content">
                           <h1>{{this.title}}</h1>
                         <span class="close"  onclick="this.parentElement.parentElement.style.display='none'">&times;</span>
                         <img src="{{this.imageURL}} "id="img01" style="max-width: 100%">
-                        <p>{{this.message}}</p>
+                        <p id="img01">{{this.message}}</p>
                       
                       </div>
                     </div>
                </div>
           {{/each}}
-
         </div>
       </div>
   </main>
