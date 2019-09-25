@@ -24,9 +24,6 @@ router.post('/signup', (req, res, next) => {
 	const blogurl = req.body.blogURL;
 	const coverPic = req.body.coverPic;
 
-	console.log(username);
-	console.log(password);
-
 	const salt = bcrypt.genSaltSync(10);
 	const hash = bcrypt.hashSync(password, salt);
 
@@ -92,7 +89,6 @@ router.get('/logout', (req, res, next) => {
 
 router.get('/profile', (req, res, next) => {
 	User.findById(req.user._id).populate('blogs').then((user) => {
-		console.log(user);
 		if (req.user) {
 			res.render('users/profile', { theUser: user });
 		} else {
