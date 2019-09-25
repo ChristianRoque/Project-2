@@ -92,7 +92,7 @@ router.get('/profile', (req, res, next) => {
 	User.findById(req.user._id).populate({ path: 'blogs', populate: { path: 'comments' } }).then((user) => {
 		console.log(user.blogs);
 		if (req.user) {
-			res.render('users/profile', { theUser: user });
+			res.render('users/profile', { User: user });
 		} else {
 			res.redirect('/login');
 		}
@@ -121,6 +121,14 @@ router.post('/settings', (req, res, next) => {
 		coverPic: coverPic
 	}).then((well) => {
 		res.redirect('/profile');
+	});
+});
+
+router.get('/:userBlog', (req, res, next) => {
+	let key = req.params.userBlog;
+	User.findOne({ blogURL: key }).populate({ path: 'blogs', populate: { path: 'comments' } }).then((user) => {
+		console.log(user);
+		res.render('users/profile', { User: user });
 	});
 });
 
