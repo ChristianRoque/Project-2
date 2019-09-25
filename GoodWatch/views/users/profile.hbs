@@ -41,16 +41,9 @@
         <div class="row gallery">
 
           {{#each theUser.blogs}}
-          <p>{{this}}</p>
-          {{/each}}
-
-        </div>
-      </div>
-  </main>
-</div>
-
 
 <!-- Modal -->
+<img onClick="onClick(this)"src="{{this.imageURL}}"/>
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -60,7 +53,6 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      
     </div>
   </div>
 </div>
@@ -68,9 +60,9 @@
     <div id="modal01" class="modal" onclick="">
       <div class="modal-content">
         <span class="close"  onclick="this.parentElement.parentElement.style.display='none'">&times;</span>
-        <h1>TITLE</h1>
-        <img id="img01" style="max-width: 100%">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas illo consectetur asperiores accusamus, labore veritatis earum tempore eaque facilis. Ipsum, placeat. Adipisci itaque voluptate commodi, consectetur eaque eos est reprehenderit.lorr Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio, consequatur non, culpa obcaecati fugiat dolorem hic officiis corrupti cum optio, unde delectus soluta porro quasi quisquam tempore illum totam aut! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Delectus, possimus? Saepe quidem ab pariatur nisi autem omnis doloremque magnam nulla quaerat, quis quasi debitis! Ad suscipit incidunt delectus cum laborum.
+        <h1>{{this.title}}</h1>
+        <img id="img01" src="{{this.imageURL}}" style="max-width: 100%">
+        <p id="passage">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas illo consectetur asperiores accusamus, labore veritatis earum tempore eaque facilis. Ipsum, placeat. Adipisci itaque voluptate commodi, consectetur eaque eos est reprehenderit.lorr Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio, consequatur non, culpa obcaecati fugiat dolorem hic officiis corrupti cum optio, unde delectus soluta porro quasi quisquam tempore illum totam aut! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Delectus, possimus? Saepe quidem ab pariatur nisi autem omnis doloremque magnam nulla quaerat, quis quasi debitis! Ad suscipit incidunt delectus cum laborum.
         </p>
         Comment 
 	      <input type="text" name="message">
@@ -78,3 +70,13 @@
       </div>
     </div>
 {{!-- comment --}}
+
+
+          {{/each}}
+
+        </div>
+      </div>
+  </main>
+</div>
+
+

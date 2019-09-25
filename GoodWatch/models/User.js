@@ -11,6 +11,7 @@ const userSchema = new Schema({
 	blogURL: String,
 	blogs: [ { type: Schema.Types.ObjectId, ref: 'Blog' } ],
 	interest: Array,
+	coverPic: String,
 	followers: [ { type: Schema.Types.ObjectId, ref: 'User' } ]
 });
 
