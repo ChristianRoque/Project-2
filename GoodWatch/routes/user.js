@@ -15,11 +15,10 @@ router.get('/', (req, res, next) => {
     res.render('index');
 });
 
-router.post('/signup', uploadCloud.single('profilePic'), (req, res, next) => {
+router.post('/signup', uploadCloud.array('photo', 2), (req, res, next) => {
     let { email, subject, message } = req.body;
-
-    const imgPath = req.file.url;
-    const imgName = req.file.originalname;
+    const imgPath = req.files[0].url;
+    const coverPath = req.files[1].url;
 
     const username = req.body.username;
     const password = req.body.password;
@@ -46,7 +45,7 @@ router.post('/signup', uploadCloud.single('profilePic'), (req, res, next) => {
         profilePic: imgPath,
         theme: theme,
         blogURL: blogurl,
-        coverPic: coverPic,
+        coverPic: coverPath,
         blogs: []
     });
     transporter
@@ -93,10 +92,10 @@ router.get('/logout', (req, res, next) => {
 // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% USER PAGES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 router.get('/profile', (req, res, next) => {
+    console.log(req.user)
     User.findById(req.user._id).populate({ path: 'blogs', populate: { path: 'comments' } }).then((user) => {
-        console.log(user.blogs);
-        if (req.user) {
-            res.render('users/profile', { theUser: user });
+        if (req.user._id) {
+            res.render('users/profile', { User: user });
         } else {
             res.redirect('/login');
         }
@@ -128,10 +127,9 @@ router.post('/settings', (req, res, next) => {
     });
 });
 
-router.get('/:userBlog', (req, res, next) => {
+router.get('/profile/:userBlog', (req, res, next) => {
     let key = req.params.userBlog;
     User.findOne({ blogURL: key }).populate({ path: 'blogs', populate: { path: 'comments' } }).then((user) => {
-        console.log(user);
         res.render('users/profile', { User: user });
     });
 });
