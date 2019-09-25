@@ -6,9 +6,8 @@ document.addEventListener(
     false
 );
 
-var span = document.getElementById('close');
-
 function onClick(element) {
+<<<<<<< HEAD
 
 
 
@@ -21,6 +20,18 @@ function onClick(element) {
     };
     document.getElementById(`modal${element.alt}`).style.display = 'block';
     document.getElementById('img01').src = element.src;
+=======
+	var modal = document.getElementById(`modal${element.alt}`);
+
+	document.getElementById(`modal${element.alt}`).style.display = 'block';
+	document.getElementById('img01').src = element.src;
+
+	window.onclick = function(event) {
+		if (event.target == modal) {
+			modal.style.display = 'none';
+		}
+	};
+>>>>>>> 30a481e741f327c07766d545bc5ec9ece93b3dc8
 }
 
 // hello

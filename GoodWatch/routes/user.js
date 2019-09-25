@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const User = require('../models/User');
+const Blog = require('../models/blog');
 const passport = require('passport');
 const nodemailer = require('nodemailer');
 const templates = require('../templates/template');
@@ -88,7 +89,8 @@ router.get('/logout', (req, res, next) => {
 // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% USER PAGES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 router.get('/profile', (req, res, next) => {
-	User.findById(req.user._id).populate('blogs').then((user) => {
+	User.findById(req.user._id).populate({ path: 'blogs', populate: { path: 'comments' } }).then((user) => {
+		console.log(user.blogs);
 		if (req.user) {
 			res.render('users/profile', { theUser: user });
 		} else {

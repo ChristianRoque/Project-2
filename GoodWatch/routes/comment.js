@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const User = require('../models/User');
+const Blog = require('../models/blog');
 const passport = require('passport');
 const Comment = require('../models/Comment');
 
@@ -11,14 +12,18 @@ router.get('/comment', (req, res, next) => {
 	});
 });
 
-router.post('/comment', (req, res, next) => {
+router.post('/comment-create/:id', (req, res, next) => {
 	let message = req.body.message;
+	let id = req.params.id;
+	console.log(id);
 	Comment.create({
 		message: message,
 		date: Date(Date.now()),
+		author: req.user._id,
 		editable: false
-	}).then((well) => {
-		res.redirect('/comment');
+	}).then((comment) => {
+		Blog.findByIdAndUpdate(id, { $push: { comments: comment._id } }).then((blog) => {});
+		res.redirect('/profile');
 	});
 });
 
