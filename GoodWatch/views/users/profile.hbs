@@ -43,13 +43,13 @@
              <div class="row gallery">
           {{#each theUser.blogs}}
            <div class="col-md-4">
-             <img onClick="onClick(this)"src="{{this.imageURL}}"/>
-                  <div id="modal01" class="modal" onclick="">
+             <img onClick="onClick(this)"src="{{this.imageURL}}" alt="{{this._id}}"/>
+                  <div id="modal{{this._id}}" class="modal" onclick="">
                       <div class="modal-content">
                           <h1>{{this.title}}</h1>
                         <span class="close"  onclick="this.parentElement.parentElement.style.display='none'">&times;</span>
                         <img src="{{this.imageURL}} "id="img01" style="max-width: 100%">
-                        <p id="img01">{{this.message}}</p>
+                        <p >{{this.message}}</p>
                       
                       </div>
                     </div>
