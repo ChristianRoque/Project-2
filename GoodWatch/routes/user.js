@@ -166,9 +166,4 @@ router.post('/delete-account', (req, res, next) => {
 
 module.exports = router;
 
-<<<<<<< HEAD
 // start routes later tomorrow
-// trying to pull
-=======
-// start routes later tomorrow
->>>>>>> 1ed429825b48a2ecbf0d0885f7b3d78dfdfe41cb
