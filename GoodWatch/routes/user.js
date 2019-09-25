@@ -22,6 +22,7 @@ router.post('/signup', (req, res, next) => {
 	const profilePic = req.body.profilePic;
 	const theme = req.body.theme;
 	const blogurl = req.body.blogURL;
+	const coverPic = req.body.coverPic;
 
 	console.log(username);
 	console.log(password);
@@ -43,6 +44,7 @@ router.post('/signup', (req, res, next) => {
 		profilePic: profilePic,
 		theme: theme,
 		blogURL: blogurl,
+		coverPic: coverPic,
 		blogs: []
 	});
 	transporter
@@ -110,16 +112,22 @@ router.post('/settings', (req, res, next) => {
 	const profilePic = req.body.profilePic;
 	const theme = req.body.theme;
 	const blogurl = req.body.blogURL;
+	const coverPic = req.body.coverPic;
 
 	User.findByIdAndUpdate(req.user._id, {
 		username: username,
 		email: email,
 		profilePic: profilePic,
 		theme: theme,
-		blogURL: blogurl
+		blogURL: blogurl,
+		coverPic: coverPic
 	}).then((well) => {
 		res.redirect('/profile');
 	});
+});
+
+router.post('/delete-account', (req, res, next) => {
+	User.findByIdAndDelete(req.user);
 });
 
 module.exports = router;
