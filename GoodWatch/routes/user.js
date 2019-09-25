@@ -140,9 +140,4 @@ router.post('/delete-account', (req, res, next) => {
 
 module.exports = router;
 
-<<<<<<< HEAD
 // start routes later tomorrow
-=======
-// start routes later tomorrow
-// trying to pull
->>>>>>> 5d2fe9c207862c58bb928a995cac8a0cda98e4a5
