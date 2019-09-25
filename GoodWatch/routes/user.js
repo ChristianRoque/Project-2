@@ -154,8 +154,9 @@ router.get('/profile/:userBlog', (req, res, next) => {
 
 router.post('/follow-user/:id', (req, res, next) => {
 	let userid = req.params.id;
+	console.log(userid);
 	User.findByIdAndUpdate(userid, { $push: { followers: req.user } }).then((user) => {
-		res.redirect(`/profile/${user.blogURL}`, { User: user });
+		res.redirect(`/profile/${user.blogURL}`);
 	});
 });
 
