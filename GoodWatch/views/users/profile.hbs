@@ -57,6 +57,7 @@
 
                         <form action="/comment-create/{{this._id}}" method="POST">
                         <input type="text" name="message">
+                        <input type="hidden" name="blogSite" value="{{this.author}}"`>
                         <button type="submit" >Submit</button>
                         </form>
                         {{#each this.comments}}
