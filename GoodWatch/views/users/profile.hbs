@@ -27,8 +27,14 @@
         </div>
         <p class="desc">Hi ! My name is {{User.username}} {{User.about}}</p>
         <div>
-          <span class="follow">Follow</span>
+          <form action="/follow-user/{{User._id}}" method="POST">
+          <button type="submit">Follow</button>>
+          </form>
         </div>
+
+        {{#each User.followers}}
+        <a href="/profile/{{this.blogURL}}">{{this.username}}</a>
+        {{/each}}
         
         <div class="social">
           <a id="icon"class="fa fa-facebook-square" aria-hidden="true" href="https://facebook.com"></a>
@@ -58,12 +64,16 @@
                         </form>
                         {{#each this.comments}}
                              <p>{{this.message}}</p>
+
+                              {{#if this.mine}}
                               <form action="/delete-comment/{{this._id}}" method="POST" >
                                 <button>Delete</button>
                               </form>
                               <form action="/edit-comment/{{this._id}}" method="POST">
+
                               <button type="submit">Edit</button>
                               </form>
+                              {{/if}}
 
                               {{#if this.editable}}
                               <form action="/edit/{{this._id}}" method="POST">
@@ -82,3 +92,9 @@
 </div>
 
 
+<<<<<<< HEAD
+=======
+{{#each Comments}}
+{{this}}
+{{/each}}
+>>>>>>> 4f00e10a1a989aba6c6edb2a7bb1e2d9b848488b
