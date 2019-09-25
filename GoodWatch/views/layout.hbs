@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="/stylesheets/style.css"/>
+  
   <title>{{title}}</title>
 </head>
 <body class="theProfile">
@@ -22,6 +23,7 @@
   <div class="box">
     <a href="/login" >LOGIN</a>
   </div>
+  
   <div class="box">
    <input class ="search"type="text" name="search" placeholder="Search..">
   </div>
@@ -30,12 +32,16 @@
   <div class="box">
     <a href="/" >HOME</a>
   </div>
-  <div class="box">
+  {{!-- <div class="box">
    <input class ="search"type="text" name="search" placeholder="Search..">
+  </div> --}}
+   <div class="box">
+    <a href="/blogs">FEED</a>
   </div>
   <div class="box">
     <a href="/logout">LOGOUT</a>
   </div>
+  
   <div class="dropdown">
      <a id="box" href="/profile" class="box">PROFILE</a>
         <div class="dropdown-content">

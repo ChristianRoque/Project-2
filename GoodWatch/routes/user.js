@@ -109,7 +109,6 @@ router.get('/profile', (req, res, next) => {
 					}
 				});
 			});
-			console.log(user.blogs);
 			if (req.user._id) {
 				res.render('users/profile', { User: user });
 			} else {

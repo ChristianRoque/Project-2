@@ -1,6 +1,7 @@
+
+
 <div class="container">
   <img src="{{User.coverPic}}"class="profile"></img>
-    <i class="fa fa-bars" aria-hidden="true"></i>
   </header>
   <main>
     <div class="row">
@@ -27,7 +28,7 @@
         <p class="desc">Hi ! My name is {{User.username}} {{User.about}}</p>
         <div>
           <form action="/follow-user/{{User._id}}" method="POST">
-          <button type="submit">Follow</button>>
+          <button type="submit">Follow</button>
           </form>
         </div>
 
@@ -45,7 +46,7 @@
 
       
       <div class="right col-lg-8">
-         <div class="row gallery">
+         <div class="">
              <div class="row gallery">
           {{#each User.blogs}}
            <div class="col-md-4">
@@ -55,12 +56,7 @@
                           <h1>{{this.title}}</h1>
                         <span class="close"  onclick="this.parentElement.parentElement.style.display='none'">&times;</span>
                         <img src="{{this.imageURL}} "id="img01" style="max-width: 100%">
-
                         <p >{{this.message}}</p>
-                      
-
-                       
-
                         <form action="/comment-create/{{this._id}}" method="POST">
                         <input type="text" name="message">
                         <input type="hidden" name="blogSite" value="{{this.author}}"`>
