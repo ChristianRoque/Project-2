@@ -22,9 +22,7 @@ router.post('/signup', (req, res, next) => {
 	const profilePic = req.body.profilePic;
 	const theme = req.body.theme;
 	const blogurl = req.body.blogURL;
-
-	console.log(username);
-	console.log(password);
+	const coverPic = req.body.coverPic;
 
 	const salt = bcrypt.genSaltSync(10);
 	const hash = bcrypt.hashSync(password, salt);
@@ -43,6 +41,7 @@ router.post('/signup', (req, res, next) => {
 		profilePic: profilePic,
 		theme: theme,
 		blogURL: blogurl,
+		coverPic: coverPic,
 		blogs: []
 	});
 	transporter
@@ -90,7 +89,6 @@ router.get('/logout', (req, res, next) => {
 
 router.get('/profile', (req, res, next) => {
 	User.findById(req.user._id).populate('blogs').then((user) => {
-		console.log(user);
 		if (req.user) {
 			res.render('users/profile', { theUser: user });
 		} else {
@@ -110,16 +108,22 @@ router.post('/settings', (req, res, next) => {
 	const profilePic = req.body.profilePic;
 	const theme = req.body.theme;
 	const blogurl = req.body.blogURL;
+	const coverPic = req.body.coverPic;
 
 	User.findByIdAndUpdate(req.user._id, {
 		username: username,
 		email: email,
 		profilePic: profilePic,
 		theme: theme,
-		blogURL: blogurl
+		blogURL: blogurl,
+		coverPic: coverPic
 	}).then((well) => {
 		res.redirect('/profile');
 	});
+});
+
+router.post('/delete-account', (req, res, next) => {
+	User.findByIdAndDelete(req.user);
 });
 
 module.exports = router;
