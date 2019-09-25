@@ -47,7 +47,15 @@
                         <span class="close"  onclick="this.parentElement.parentElement.style.display='none'">&times;</span>
                         <img src="{{this.imageURL}} "id="img01" style="max-width: 100%">
                         <p>{{this.message}}</p>
-                      
+
+                        <form action="/comment-create/{{this._id}}" method="POST">
+                        <input type="text" name="message">
+                        <button type="submit" >Submit</button>
+                        </form>
+                        {{#each this.comments}}
+                           <p>{{this.message}}</p>
+                        {{/each}}
+
                       </div>
                     </div>
                </div>
