@@ -1,15 +1,15 @@
 <div class="container">
-  <img src="{{logged.coverPic}}"class="profile"></img>
+  <img src="{{User.coverPic}}"class="profile"></img>
     <i class="fa fa-bars" aria-hidden="true"></i>
   </header>
   <main>
     <div class="row">
       <div class="left col-lg-4">
         <div class="photo-left">
-          <img class="photo" src="{{logged.profilePic}}"/>
+          <img class="photo" src="{{User.profilePic}}"/>
         </div>
-        <h4 class="name">{{logged.username}}</h4>
-        <p class="info">{{logged.email}}</p>
+        <h4 class="name">{{User.username}}</h4>
+        <p class="info">{{User.email}}</p>
         <div class="stats row">
           <div class="stat col-xs-4" style="padding-right: 50px;">
             <p class="number-stat">3,619</p>
@@ -41,7 +41,7 @@
       <div class="right col-lg-8">
          <div class="row gallery">
              <div class="row gallery">
-          {{#each theUser.blogs}}
+          {{#each User.blogs}}
            <div class="col-md-4">
              <img onClick="onClick(this)"src="{{this.imageURL}}" alt="{{this._id}}"/>
                   <div id="modal{{this._id}}" class="modal" onclick="">

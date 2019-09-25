@@ -128,6 +128,14 @@ router.post('/settings', (req, res, next) => {
     });
 });
 
+router.get('/:userBlog', (req, res, next) => {
+    let key = req.params.userBlog;
+    User.findOne({ blogURL: key }).populate({ path: 'blogs', populate: { path: 'comments' } }).then((user) => {
+        console.log(user);
+        res.render('users/profile', { User: user });
+    });
+});
+
 router.post('/delete-account', (req, res, next) => {
     User.findByIdAndDelete(req.user);
 });

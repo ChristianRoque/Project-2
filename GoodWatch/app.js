@@ -1,6 +1,7 @@
 require('dotenv').config();
 
 const bodyParser = require('body-parser');
+const axios = require('axios');
 const cookieParser = require('cookie-parser');
 const express = require('express');
 const favicon = require('serve-favicon');
