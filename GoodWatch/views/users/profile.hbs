@@ -26,8 +26,14 @@
         </div>
         <p class="desc">Hi ! My name is {{User.username}} {{User.about}}</p>
         <div>
-          <span class="follow">Follow</span>
+          <form action="/follow-user/{{User._id}}" method="POST">
+          <button type="submit">Follow</button>>
+          </form>
         </div>
+
+        {{#each User.followers}}
+        <a href="/profile/{{this.blogURL}}">{{this.username}}</a>
+        {{/each}}
         
         <div class="social">
           <a id="icon"class="fa fa-facebook-square" aria-hidden="true" href="https://facebook.com"></a>
@@ -62,12 +68,16 @@
                         </form>
                         {{#each this.comments}}
                              <p>{{this.message}}</p>
+
+                              {{#if this.mine}}
                               <form action="/delete-comment/{{this._id}}" method="POST" >
                                 <button>Delete</button>
                               </form>
                               <form action="/edit-comment/{{this._id}}" method="POST">
+
                               <button type="submit">Edit</button>
                               </form>
+                              {{/if}}
 
                               {{#if this.editable}}
                               <form action="/edit/{{this._id}}" method="POST">
@@ -86,39 +96,6 @@
 </div>
 
 
-{{!-- <!-- Modal -->
-{{#each theUser}}
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">{{this.title}}</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
-
-{{/each}} --}}
-    <!-- 1st IMAGE MODAL -->
-    {{!-- {{#each theUser.blogs}}
-    <div id="modal01" class="modal" onclick="">
-      <div class="modal-content">
-          <h1>{{this.title}}</h1>
-
-        <span class="close"  onclick="this.parentElement.parentElement.style.display='none'">&times;</span>
-        <img id="img01" style="max-width: 100%">
-        <p>{{this.message}}
-        </p>
-        Comment 
-        <form action="/comment/{{this.id}}">
-	      <input type="text" name="message">
-	      <button>Submit</button>
-        </form>
-      </div>
-    </div>
-
-    {{/each}} --}}
-{{!-- comment --}}
+{{#each Comments}}
+{{this}}
+{{/each}}
