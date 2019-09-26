@@ -48,6 +48,7 @@
 
         {{#each User.followers}}
         <a href="/profile/{{this.blogURL}}">{{this.username}}</a>
+        <img class="profilePic" src="{{this.profilePic}}" alt="">
         {{/each}}
         
         <div class="social">
@@ -78,7 +79,7 @@
                         </form>
                         {{#each this.comments}}
                              <p>{{this.message}}</p>
-
+                             <img id="commentPic" src="{{this.author.profilePic}}" alt="">
                               {{#if this.mine}}
                               <form action="/delete-comment/{{this._id}}" method="POST" >
                                 <button>Delete</button>

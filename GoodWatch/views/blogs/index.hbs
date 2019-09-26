@@ -1,20 +1,27 @@
-<h1 class ="all">List of All Blogs</h1>
-
-{{#each blogs}}
-<div class="container">
 
 
-<h2><a href="/blogs/{{this._id}}"> 
-{{this.title}}
-</a></h2>
-<img  style="max-width: 80%" class= ""src="{{this.imageURL}}"> 
-<form action="/blogs/delete/{{this._id}}" method="POST">
-    {{!-- <button class ="button">Remove Blog</button> --}}
-</form>
 
 
-</div>
 
 
-{{!-- <a class="edit" href="/blogs/editblog/{{this._id}}">Edit Blog</a> --}}
-{{/each}}
+
+
+
+<section class="cards-wrapper">
+    {{#each blogs}}
+  <div class="card-grid-space">
+    <div class="num">latest</div>
+    <a class="card" href="/blogs/{{this._id}}" style="--bg-img: url({{this.imageURL}})">
+      <div>
+        <h1>{{this.title}}</h1>
+        {{!-- <p>{{this.message}}</p> --}}
+        <p></p>
+        <div class="date">DATE</div>
+        <div class="tags">
+          <div class="tag">{{this.title}}</div>
+        </div>
+      </div>
+    </a>
+  </div>
+  {{/each }}
+</section>
