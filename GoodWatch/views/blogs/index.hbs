@@ -1,10 +1,10 @@
 <section class="cards-wrapper">
     {{#each blogs}}
   <div class="card-grid-space">
-    <div class="num">latest</div>
+    <div class="num">{{this.interest}}</div>
     <a class="card" href="/blogs/{{this._id}}" style="--bg-img: url({{this.imageURL}})">
       <div>
-        <h1>{{this.title}}</h1>
+        <h1>{{this.interest}}</h1>
         <p></p>
         <div class="date">DATE</div>
         <div class="tags">
