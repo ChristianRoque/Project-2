@@ -79,14 +79,23 @@ router.post('/blogs/delete/:id', (req, res, next) => {
 
 router.get('/blogs/editblog/:id', (req, res, next) => {
 	let id = req.params.id;
-	Blog.findById(id)
-		.then((blog) => {
-			console.log();
-			res.render('blogs/edit', { blog: blog });
-		})
-		.catch((err) => {
-			next(err);
-		});
+
+	if (req.user) {
+		Blog.findById(id)
+			.then((blog) => {
+				console.log(blog._id);
+				if (req.user._id.equals(blog.author)) {
+					res.render('blogs/edit', { blog: blog });
+				} else {
+					res.redirect(`/blogs/${blog._id}`);
+				}
+			})
+			.catch((err) => {
+				next(err);
+			});
+	} else {
+		res.redirect('/login');
+	}
 });
 
 router.post('/blogs/editblogs/:id', (req, res, next) => {
@@ -96,26 +105,37 @@ router.post('/blogs/editblogs/:id', (req, res, next) => {
 	let title = req.body.title;
 	let message = req.body.message;
 
-	Blog.findByIdAndUpdate(id, {
-		imageURL: imageURL,
-		interest: interest,
-		title: title,
-		message: message,
-		date: new Date()
-	})
-		.then(() => {
-			res.redirect('/blogs');
-		})
-		.catch((err) => {
-			next(err);
+	if (user.req) {
+		Blog.findById(id).then((blog) => {
+			if (req.user._id.equals(blog.author)) {
+				Blog.findByIdAndUpdate(id, {
+					imageURL: imageURL,
+					interest: interest,
+					title: title,
+					message: message,
+					date: new Date()
+				})
+					.then(() => {
+						res.redirect('/blogs');
+					})
+					.catch((err) => {
+						next(err);
+					});
+			} else {
+				res.redirect('/login');
+			}
 		});
+	} else {
+		res.redirect('/login');
+	}
 });
 
 router.get('/myblogs', (req, res, next) => {
 	if (req.user) {
 		User.findById(req.user._id).populate('blogs').then((user) => {
-			console.log(user);
-			res.render('blogs/myblogs', { User: user });
+			if (req.user._id.equals(user._id)) {
+				res.render('blogs/myblogs', { User: user });
+			}
 		});
 	} else {
 		res.redirect('/login');
@@ -124,10 +144,17 @@ router.get('/myblogs', (req, res, next) => {
 
 router.get('/myblog/:id', (req, res, next) => {
 	let id = req.params.id;
-
-	Blog.findById(id).populate('author').populate('comments').then((blog) => {
-		res.render('blogs/mydetails', { theBlog: blog });
-	});
+	if (req.user) {
+		Blog.findById(id).populate('author').populate('comments').then((blog) => {
+			if (req.user._id.equals(blog.author._id)) {
+				res.render('blogs/mydetails', { theBlog: blog });
+			} else {
+				res.redirect(`/blogs/${blog._id}`);
+			}
+		});
+	} else {
+		res.redirect('/login');
+	}
 });
 
 module.exports = router;
