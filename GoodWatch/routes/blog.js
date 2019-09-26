@@ -106,7 +106,6 @@ router.post('/blogs/editblogs/:id', uploadCloud.single('blogphoto'), (req, res, 
     let title = req.body.title;
     let message = req.body.message;
 
-<<<<<<< HEAD
     if (req.user) {
         Blog.findById(id).then((blog) => {
             if (req.user._id.equals(blog.author)) {
@@ -130,31 +129,6 @@ router.post('/blogs/editblogs/:id', uploadCloud.single('blogphoto'), (req, res, 
     } else {
         res.redirect('/login');
     }
-=======
-	if (req.user) {
-		Blog.findById(id).then((blog) => {
-			if (req.user._id.equals(blog.author)) {
-				Blog.findByIdAndUpdate(id, {
-					imageURL: imageURL,
-					interest: interest,
-					title: title,
-					message: message,
-					date: new Date()
-				})
-					.then(() => {
-						res.redirect('/blogs');
-					})
-					.catch((err) => {
-						next(err);
-					});
-			} else {
-				res.redirect('/login');
-			}
-		});
-	} else {
-		res.redirect('/login');
-	}
->>>>>>> 59900bf57162efffe3634f39816a8eae8d29346a
 });
 
 router.get('/myblogs', (req, res, next) => {
