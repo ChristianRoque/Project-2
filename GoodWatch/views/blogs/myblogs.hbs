@@ -1,0 +1,19 @@
+
+<section class="cards-wrapper">
+  {{#each User.blogs}}
+  <div class="card-grid-space">
+    <div class="num">latest</div>
+    <a class="card" href="/myblog/{{this._id}}" style="--bg-img: url({{this.imageURL}})">
+      <div>
+        <h1>{{this.title}}</h1>
+        {{!-- <p>{{this.message}}</p> --}}
+        <p></p>
+        <div class="date">DATE</div>
+        <div class="tags">
+          <div class="tag">{{this.title}}</div>
+        </div>
+      </div>
+    </a>
+  </div>
+  {{/each }}
+</section>

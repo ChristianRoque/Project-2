@@ -1,0 +1,28 @@
+<h1 class="all">BLOG DETAILS</h1>
+<img src={{theBlog.imageURL}}>
+<p>Title:</p>
+<h2>{{theBlog.title}}</h2>
+
+<p>Message:</p>
+<h2>{{theBlog.message}}</h2>
+
+<p>Author:</p>
+<a href="/profile/{{theBlog.author.blogURL}}"><h2>{{theBlog.author.username}}</h2></a>
+
+<p>Interest:</p>
+<h2>{{theBlog.interest}}</h2>
+
+<p>Comments:</p>
+
+{{#each theBlog.comments}}
+<p>{{this.message}}</p>
+{{/each}}
+
+<p>Date:</p>
+<h2>{{theBlog.date}}</h2>
+
+<a href="/blogs/editblog/{{theBlog._id}}"><button type="submit">Edit</button></a>
+
+<form action="/blogs/delete/{{theBlog._id}}" method="POST">
+<button type="submit">Delete</button>
+</form>

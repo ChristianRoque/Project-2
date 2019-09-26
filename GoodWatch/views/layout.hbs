@@ -13,63 +13,48 @@
 </head>
 <body>
 
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/">Views</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      {{!-- <li class="nav-item active">
+        <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
+      </li> --}}
+      <li class="nav-item">
+        <a class="nav-link" href="/blogs">Feed</a>
+      </li>
+      {{#unless logged}}
+      <li class="nav-item">
+        <a class="nav-link" href="/login">Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/signup">Sign Up</a>
+      </li>
+      {{/unless}}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
- 
- <div class="box-wrap">
-  {{#unless logged}}
-  <div class="box">
-   <a href="/" >HOME</a>
-  </div>
-  <div class="box">
-   <a href="/signup">SIGNUP</a>  </div>
-  <div class="box">
-    <a href="/login" >LOGIN</a>
-  </div>
-  
-  {{!-- <div class="box">
-   <input class ="search"type="text" name="search" placeholder="Search..">
-  </div> --}}
-  {{/unless}}
-  {{#if logged}}
-  <div class="box">
-    <a href="/" >HOME</a>
-  </div>
-  {{!-- <div class="box">
-   <input class ="search"type="text" name="search" placeholder="Search..">
-  </div> --}}
-   <div class="box">
-    <a href="/blogs">FEED</a>
-  </div>
-  <div class="box">
-    <a href="/logout">LOGOUT</a>
-  </div>
-  
-  <div class="dropdown">
-     <a id="box" href="/profile" class="box">PROFILE</a>
-        <div class="dropdown-content">
-          <a href="/new-blog">Create new Blog</a>
-          <a href="/settings">Settings</a>
-          <a href="/blogs">Blogs</a>
+      {{#if logged}}
+      <li class="nav-item">
+        <a class="nav-link" href="/logout">Logout</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown link
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="/new-blog">Create New Blog</a>
+          <a class="dropdown-item" href="/settings">Settings</a>
+          <a class="dropdown-item" href="/myblogs">My Blogs</a>
         </div>
-  </div> 
-  {{/if}}
-</div>
+      </li>
+      {{/if}}
+
+    </ul>
+  </div>
+</nav>
+
 
   {{{body}}}
   
