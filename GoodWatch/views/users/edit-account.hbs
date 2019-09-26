@@ -1,4 +1,4 @@
-<form action ="/settings"id="form" class="topBefore"method="POST">
+{{!-- <form action ="/settings"id="form" class="topBefore"method="POST">
 
       <input  name="username" id="name" type="text" placeholder="NAME" value="{{User.username}}" >
       <input  name="email" id="email" type="text" placeholder="E-MAIL" value="{{User.email}}" >
@@ -11,4 +11,59 @@
 
 <form action="/delete-account" method="POST">
 <button>Delete Account</button>
+</form> --}}
+
+
+<div class='bold-line'></div>
+<div class='container'>
+  <div class='window'>
+    <div class='overlay'></div>
+    <div class='content'>
+      <div class='welcome'>Hello There!</div>
+      <div class='subtitle'>We're almost done. Before using our services you need to create an account.</div>
+      <div class='input-fields'>
+
+
+
+
+
+
+    <form action ="/settings" id="form" class='input-line full-width'method="POST" enctype="multipart/form-data">
+
+             <input  class='input-line full-width' name="username" id="name" type="text" placeholder="NAME" value="{{User.username}}" >
+
+
+
+            <input  class='input-line full-width' name="email" id="email" type="text" placeholder="E-MAIL" value="{{User.email}}">
+
+
+
+            <input  class='input-line full-width' name="blogURL" id="blogURL" type="text"placeholder="BLOG-URL" value="{{User.blogURL}}" >
+
+
+
+            <input  class='input-line full-width' type="file" name="photo" placeholder="PROFILE IMAGE" value="{{User.profilePic}}" >
+
+
+
+            <input  class='input-line full-width' type="file" name="photo" placeholder="BACKGROUND IMAGE" value="{{User.coverPic}}">
+
+
+          
+            <div> <input class='ghost-round full-width' id="submit" type="submit" value="UPDATE"></div>
+
+
+          </form>
+
+
+
+
+
+
+
+
+     <form action="/delete-account" method="POST">
+     <div> <input class='ghost-round full-width' id="submit" type="submit" value="DELETE ACCOUNT"></div>
 </form>
+  </div>
+</div>
