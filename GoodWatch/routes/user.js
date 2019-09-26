@@ -21,6 +21,7 @@ router.post('/signup', uploadCloud.array('photo', 2), (req, res, next) => {
     const imgPath = req.files[0].url;
     const coverPath = req.files[1].url;
 
+    const about = req.body.about;
     const username = req.body.username;
     const password = req.body.password;
     const Email = req.body.email;
@@ -48,7 +49,8 @@ router.post('/signup', uploadCloud.array('photo', 2), (req, res, next) => {
         blogURL: blogurl,
         coverPic: coverPath,
         blogs: [],
-        followers: []
+        followers: [],
+        about: about
     });
     transporter
         .sendMail({
@@ -99,11 +101,11 @@ router.get('/profile', (req, res, next) => {
         .populate('followers')
         .then((user) => {
             let arr = user.blogs;
-            arr.forEach(function(element) {
-                let arr2 = element.comments;
-                arr2.forEach(function(element) {
-                    if (element.author.equals(req.user._id)) {
-                        element.mine = true;
+            arr.forEach(function(blogs) {
+                let arr2 = blogs.comments;
+                arr2.forEach(function(comment) {
+                    if (comment.author.equals(req.user._id)) {
+                        comment.mine = true;
                         // now we are attaching a .mine key to all the books who have a creator equal to currently logged in user's ID
                         // and also, if currently logged in user isAdmin, were attaching it to all of them
                     }
@@ -125,13 +127,8 @@ router.get('/settings', (req, res, next) => {
     }
 });
 
-router.post('/settings', uploadCloud.array('photo', 2), (req, res, next) => {
-
-
-    const imgPath = req.files[0].url;
-    const coverPath = req.files[1].url;
-
-
+router.post('/settings', (req, res, next) => {
+    const about = req.body.about;
     const username = req.body.username;
     const password = req.body.password;
     const email = req.body.email;
@@ -143,15 +140,14 @@ router.post('/settings', uploadCloud.array('photo', 2), (req, res, next) => {
     User.findByIdAndUpdate(req.user._id, {
         username: username,
         email: email,
-        profilePic: imgPath,
+        profilePic: profilePic,
         theme: theme,
         blogURL: blogurl,
-        coverPic: coverPath
+        coverPic: coverPic,
+        about: about
     }).then((well) => {
         res.redirect('/profile');
-    }).catch((error) => {
-        next(error)
-    })
+    });
 });
 
 router.get('/profile/:userBlog', (req, res, next) => {
@@ -169,7 +165,6 @@ router.get('/profile/:userBlog', (req, res, next) => {
                     }
                 });
             }
-            console.log(following);
             res.render('users/profile', { User: user, Following: following });
         });
 });
