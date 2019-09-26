@@ -37,11 +37,24 @@
         <button type="submit">Following</button>
         {{/if}}
 
+              <button id="myBtn">Open Modal</button>
 
-        {{#each User.followers}}
-        <a href="/profile/{{this.blogURL}}">{{this.username}}</a>
-        <img class="profilePic" src="{{this.profilePic}}" alt="">
-        {{/each}}
+                <!-- The Modal -->
+            <div id="myModal" class="modal">
+
+                  <!-- Modal content -->
+            <div class="modal-content">
+            <span class="close">&times;</span>
+              {{#each User.followers}}
+              <a href="/profile/{{this.blogURL}}">{{this.username}}</a>
+              <img class="profilePic" src="{{this.profilePic}}" alt="">
+              {{/each}}
+            </div>
+
+            </div>
+
+
+
         
         <div class="social">
           <a id="icon"class="fa fa-facebook-square" aria-hidden="true" href="https://facebook.com"></a>
