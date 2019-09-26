@@ -165,6 +165,17 @@ router.get('/profile/:userBlog', (req, res, next) => {
 					}
 				});
 			}
+			let arr = user.blogs;
+			arr.forEach(function(blogs) {
+				let arr2 = blogs.comments;
+				arr2.forEach(function(comment) {
+					if (comment.author.equals(req.user._id)) {
+						comment.mine = true;
+						// now we are attaching a .mine key to all the books who have a creator equal to currently logged in user's ID
+						// and also, if currently logged in user isAdmin, were attaching it to all of them
+					}
+				});
+			});
 			res.render('users/profile', { User: user, Following: following });
 		});
 });

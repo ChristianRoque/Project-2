@@ -105,7 +105,7 @@ router.post('/blogs/editblogs/:id', (req, res, next) => {
 	let title = req.body.title;
 	let message = req.body.message;
 
-	if (user.req) {
+	if (req.user) {
 		Blog.findById(id).then((blog) => {
 			if (req.user._id.equals(blog.author)) {
 				Blog.findByIdAndUpdate(id, {

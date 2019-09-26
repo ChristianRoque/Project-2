@@ -1,67 +1,9 @@
-{{!-- <div class="header">
-  <h2>NEW BLOG</h2>
-</div>
-
-<div class="row">
-  <div class="leftcolumn">
-    <div class="cardd">
-      <textarea rows="4" cols="50">
-At w3schools.com you will learn how to make a website. We offer free tutorials in all web development technologies.
-</textarea>
-      
-      <div class="fakeimg" style="height:200px;">Image</div>
-     <input  class="" name="message" id="email" type="email" placeholder="BLOG POST MESSAGE">
-    </div>
-    <div class="cardd">
-      <h2>TITLE HEADING</h2>
-      <h5>Title description, Sep 2, 2017</h5>
-      <div class="fakeimg" style="height:200px;">Image</div>
-      <p>Some text..</p>
-    </div>
-  </div>
-  <div class="rightcolumn">
-    <div class="cardd">
-      <h2>About Me</h2>
-      <div class="fakeimg" style="height:100px;">Image</div>
-      <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
-    </div>
-    <div class="cardd">
-      <h3>Popular Post</h3>
-      <div class="fakeimg">Image</div><br>
-      <div class="fakeimg">Image</div><br>
-      <div class="fakeimg">Image</div>
-    </div>
-    <div class="cardd">
-      <h3>Follow Me</h3>
-      <p>Some text..</p>
-    </div>
-  </div>
-</div>
-
-<div class="footer">
-  <h2>Footer</h2>
-</div> --}}
-
-
-{{!-- <form action="/new-blog" method="POST" enctype="multipart/form-data">
-<p>Title</p> --}}
-{{!-- <input type="text" name="title"> --}}
-{{!-- <br> --}}
-{{!-- <label> Blog Photo </label> --}}
- {{!-- <input  type="file" name="blogphoto">
-<p>Interest</p>
-<input type="text" name="interest">
-<p>Message</p>
-<input type="text" name="message"> --}}
-{{!-- <button class="submit"> Save </button> --}}
-{{!-- </form> --}}
-
-                      <div class='bold-linee'>
+<div class='bold-linee'>
 
 
 
 
-                      </div> 
+</div> 
 
 
 
@@ -70,11 +12,6 @@ At w3schools.com you will learn how to make a website. We offer free tutorials i
 {{!-- <div class='containerr'> --}}
   <div class='windoww'>
                       <div class='overlayy'>
-
-
-
-
-                        
                       </div>
     <div class='overlayy'>
       <div class='welcome'>YOU'RE BACK</div>
@@ -83,19 +20,29 @@ At w3schools.com you will learn how to make a website. We offer free tutorials i
                       </div>
       <div class='input-fields'>
 
-
                     <form action="/new-blog"  class='input-line full-width' id="form" method="POST" enctype="multipart/form-data">
                         <input  class='input-line full-width' name="title" id="name" type="text" placeholder="BLOG TITLE">
                         {{!-- <input  class='input-line full-width' name="interest" id="name" type="text" placeholder="TOPIC INTEREST"> --}}
                         <input  class='input-line' type="file" name="blogphoto" placeholder="BLOG IMAGE">
                                   {{!-- <input class='input-line full-width' name="message" id="message" type="text" placeholder="BLOG POST MESSAGE"> --}}
+                        <select name="interest">
+                        <br>      
+                        <option value="" selected disabled > Please Select One </option>
+
+                        {{!-- the array of authors gets pulled from the Database  --}}
+                        <option value="Health"> Health </option>
+                        <option value="Science"> Science </option>
+                        <option value="Sports"> Sports </option>
+                        <option value="Politics"> Politics </option>
+                        <option value="Celebrities"> Celebrities </option>
+                        <option value="Movies"> Movies </option>
+                        <option value="Opinion"> Opinion </option>
+                        <option value="The more you know"> The more you know </option>
+
+                        </select>
 
 
-
-                                  <textarea  placeholder="BLOG MESSAGE HERE....." name="message" id="message" type="text" class='input-line full-width'></textarea>
-
-
-
+                     <textarea  placeholder="BLOG MESSAGE HERE....." name="message" id="message" type="text" class='input-line full-width'></textarea>
                     <button class='ghost-round full-width' id="submit" type="submit" value="POST YOUR BLOG">POST YOUR BLOG</button>
                       </form>
                       </div>
