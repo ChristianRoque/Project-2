@@ -1,11 +1,11 @@
 <form action ="/settings"id="form" class="topBefore"method="POST">
 
-      <input  name="username" id="name" type="text" placeholder="NAME">
-      <input  name="email" id="email" type="text" placeholder="E-MAIL">
-      <input  name="blogURL" id="blogURL" type="text" placeholder="BLOG-URL">
-      <input  name="profilePic" id="ProfilePic" type="text" placeholder="ProfilePic">
-      <input  name="coverPic" id="ProfilePic" type="text" placeholder="CoverPic">
-      <input  name="theme" id="theme" type="text" placeholder="THEME">
+      <input  name="username" id="name" type="text" placeholder="NAME" value="{{User.username}}" >
+      <input  name="email" id="email" type="text" placeholder="E-MAIL" value="{{User.email}}" >
+      <input  name="blogURL" id="blogURL" type="text" placeholder="BLOG-URL" value="{{User.blogURL}}" >
+      <input  name="profilePic" id="ProfilePic" type="text" placeholder="ProfilePic" value="{{User.profilePic}}" >
+      <input  name="coverPic" id="ProfilePic" type="text" placeholder="CoverPic" value="{{User.coverPic}}" >
+      <input  name="theme" id="theme" type="text" placeholder="THEME" value="{{User.theme}}" >
       <input  id="submit" type="submit" value="SIGNUP">
 </form>
 

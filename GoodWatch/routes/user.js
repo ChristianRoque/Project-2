@@ -118,7 +118,11 @@ router.get('/profile', (req, res, next) => {
 });
 
 router.get('/settings', (req, res, next) => {
-	res.render('users/edit-account');
+	if (req.user) {
+		res.render('users/edit-account', { User: req.user });
+	} else {
+		res.redirect('/login');
+	}
 });
 
 router.post('/settings', (req, res, next) => {
@@ -145,7 +149,7 @@ router.post('/settings', (req, res, next) => {
 router.get('/profile/:userBlog', (req, res, next) => {
 	let key = req.params.userBlog;
 	User.findOne({ blogURL: key })
-		.populate({ path: 'blogs', populate: { path: 'comments' } })
+		.populate({ path: 'blogs', populate: { path: 'comments', populate: { path: 'author' } } })
 		.populate('followers')
 		.then((user) => {
 			res.render('users/profile', { User: user });
@@ -154,10 +158,14 @@ router.get('/profile/:userBlog', (req, res, next) => {
 
 router.post('/follow-user/:id', (req, res, next) => {
 	let userid = req.params.id;
-	console.log(userid);
-	User.findByIdAndUpdate(userid, { $push: { followers: req.user } }).then((user) => {
-		res.redirect(`/profile/${user.blogURL}`);
-	});
+
+	if (req.user) {
+		User.findByIdAndUpdate(userid, { $push: { followers: req.user } }).then((user) => {
+			res.redirect(`/profile/${user.blogURL}`);
+		});
+	} else {
+		res.redirect('/login');
+	}
 });
 
 router.post('/delete-account', (req, res, next) => {

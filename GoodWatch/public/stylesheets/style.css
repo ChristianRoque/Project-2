@@ -667,4 +667,10 @@ a#box.dropbtn {
 .image-modal {
   width: 100% !important; }
 
+.profilePic {
+  width: 20%; }
+
+#commentPic {
+  width: 7% !important; }
+
 /*# sourceMappingURL=style.css.map */
