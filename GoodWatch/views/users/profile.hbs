@@ -45,10 +45,14 @@
                   <!-- Modal content -->
             <div class="modal-content">
             <span class="close">&times;</span>
+            <div class="followers-container">
               {{#each User.followers}}
+              <div class="follower-container">
               <a href="/profile/{{this.blogURL}}">{{this.username}}</a>
               <img class="profilePic" src="{{this.profilePic}}" alt="">
+              </div>
               {{/each}}
+              </div>
             </div>
             </div>
     
