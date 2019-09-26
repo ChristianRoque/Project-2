@@ -1,4 +1,5 @@
-<div>
+
+<div class="'bold-line'">
   <img src="{{User.coverPic}}"class="profile"></img>
   </header>
   <main>
@@ -35,11 +36,12 @@
         <button type="submit">Following</button>
         {{/if}}
 
-              <button id="myBtn">Open Modal</button>
 
+
+
+              <button id="myBtn">Open Modal</button>
                 <!-- The Modal -->
             <div id="myModal" class="modal">
-
                   <!-- Modal content -->
             <div class="modal-content">
             <span class="close">&times;</span>
@@ -48,21 +50,14 @@
               <img class="profilePic" src="{{this.profilePic}}" alt="">
               {{/each}}
             </div>
-
             </div>
-
-
-
-        
+    
         <div class="social">
           <a id="icon"class="fa fa-facebook-square" aria-hidden="true" href="https://facebook.com"></a>
           <a id="icon"class="fa fa-twitter-square" aria-hidden="true"href="https://twitter.com"></a>
         </div>
       </div>
-
-
-
-      
+    
       <div class="right col-lg-8">
          <div class="">
              <div class="row gallery">
@@ -85,18 +80,16 @@
                              <img id="commentPic" src="{{this.author.profilePic}}" alt="">
                               {{#if this.mine}}
                               <form action="/delete-comment/{{this._id}}" method="POST" >
-                                <button>Delete</button>
+                              <button>Delete</button>
                               </form>
                               <form action="/edit-comment/{{this._id}}" method="POST">
-
                               <button type="submit">Edit</button>
                               </form>
                               {{/if}}
-
                               {{#if this.editable}}
                               <form action="/edit/{{this._id}}" method="POST">
                               <input type="text" name="messageUpdated" value="{{this.message}}">
-                                <button>Submit</button>
+                              <button>Submit</button>
                               </form>
                               {{/if}}
                         {{/each}}
