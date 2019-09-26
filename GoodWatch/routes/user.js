@@ -152,7 +152,17 @@ router.get('/profile/:userBlog', (req, res, next) => {
 		.populate({ path: 'blogs', populate: { path: 'comments', populate: { path: 'author' } } })
 		.populate('followers')
 		.then((user) => {
-			res.render('users/profile', { User: user });
+			let following = false;
+			if (req.user) {
+				let arr = user.followers;
+				arr.forEach((follower) => {
+					if (follower._id.equals(req.user._id)) {
+						following = true;
+					}
+				});
+			}
+			console.log(following);
+			res.render('users/profile', { User: user, Following: following });
 		});
 });
 
@@ -160,11 +170,21 @@ router.post('/follow-user/:id', (req, res, next) => {
 	let userid = req.params.id;
 
 	if (req.user) {
-		User.findByIdAndUpdate(userid, { $push: { followers: req.user } }).then((user) => {
-			res.redirect(`/profile/${user.blogURL}`);
+		User.findById(userid).then((user) => {
+			user.followers.forEach((follower) => {
+				if ((follower._id = req.user._id)) {
+					res.redirect(`/profile/${user.blogURL}`);
+				}
+			});
+			User.findByIdAndUpdate(userid, { $push: { followers: req.user } }).then((user) => {
+				res.redirect(`/profile/${user.blogURL}`);
+			});
 		});
-	} else {
-		res.redirect('/login');
+		// User.findByIdAndUpdate(userid, { $push: { followers: req.user } }).then((user) => {
+		// 	res.redirect(`/profile/${user.blogURL}`);
+		// });
+		// } else {
+		// 	res.redirect('/login');
 	}
 });
 

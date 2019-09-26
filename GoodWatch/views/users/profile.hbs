@@ -28,9 +28,15 @@
         <p class="desc">Hi ! My name is {{User.username}} {{User.about}}</p>
         <div>
           <form action="/follow-user/{{User._id}}" method="POST">
+          {{#unless Following}}
           <button type="submit">Follow</button>
+          {{/unless}}
           </form>
         </div>
+        {{#if Following }}
+        <button type="submit">Following</button>
+        {{/if}}
+
 
         {{#each User.followers}}
         <a href="/profile/{{this.blogURL}}">{{this.username}}</a>
