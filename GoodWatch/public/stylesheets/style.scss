@@ -79,7 +79,6 @@ body {
     padding: 0 !important;
     width: 90%;
     background-color: radial-gradient(circle at 50% 0, rgba(255, 0, 0, .5), rgba(255, 0, 0, 0) 70.71%), radial-gradient(circle at 6.7% 75%, rgba(0, 0, 255, .5), rgba(0, 0, 255, 0) 70.71%), radial-gradient(circle at 93.3% 75%, rgba(0, 255, 0, .5), rgba(0, 255, 0, 0) 70.71%) beige;
-    ;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.10), 0 3px 6px rgba(0, 0, 0, 0.10);
 }
 
@@ -89,7 +88,6 @@ body {
     padding: 0 !important;
     width: 90%;
     background-color: radial-gradient(circle at 50% 0, rgba(255, 0, 0, .5), rgba(255, 0, 0, 0) 70.71%), radial-gradient(circle at 6.7% 75%, rgba(0, 0, 255, .5), rgba(0, 0, 255, 0) 70.71%), radial-gradient(circle at 93.3% 75%, rgba(0, 255, 0, .5), rgba(0, 255, 0, 0) 70.71%) beige;
-    ;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.10), 0 3px 6px rgba(0, 0, 0, 0.10);
 }
 
@@ -313,7 +311,6 @@ main {
 .dropbtn {
     background-color: rgb(255, 255, 255);
     color: radial-gradient(circle at 50% 0, rgba(255, 0, 0, .5), rgba(255, 0, 0, 0) 70.71%), radial-gradient(circle at 6.7% 75%, rgba(0, 0, 255, .5), rgba(0, 0, 255, 0) 70.71%), radial-gradient(circle at 93.3% 75%, rgba(0, 255, 0, .5), rgba(0, 255, 0, 0) 70.71%) beige;
-    ;
     padding: 16px;
     font-size: 14px;
     border: none;
@@ -609,7 +606,7 @@ button:focus {
     color: rgba(83, 83, 83, 0.65);
 }
 
-::-webkit-input-placeholder .input-line:focus+::input-placeholder {
+::-webkit-input-placeholder .input-line:focus+ ::input-placeholder {
     color: #fff;
 }
 
@@ -634,7 +631,7 @@ button:focus {
     font-weight: 300;
     text-align: center;
     margin-top: 5px;
-    color: rgba(255, 255, 255, 0.65)
+    color: rgba(255, 255, 255, 0.65);
 }
 
 .input-line:focus {
@@ -1197,3 +1194,8 @@ textarea {
 }
 
 /////////////////////////////////////////////////////////////////////////////FOOTER////////////////////////////
+///////////////////////////////////////// Followers modal ////////////////////
+.followers-container {
+    display: flex;
+    flex-direction: column;
+}
