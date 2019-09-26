@@ -1,4 +1,4 @@
-<form action="/blogs/editblogs/{{blog._id}}" method="POST" >
+{{!-- <form action="/blogs/editblogs/{{blog._id}}" method="POST" >
 	imageURL: 
   <input type="text" name="imageURL" value="{{blog.imageURL}}">
 	interest:
@@ -9,3 +9,47 @@
 	<input type="text" name="message" value="{{blog.message}}">
 	<button>Submit</button>
 </form>
+ --}}
+
+
+
+
+
+
+
+
+
+
+  <div class='bold-linee'></div> 
+
+{{!-- <div class='containerr'> --}}
+  <div class='windoww'>
+     <div class='overlayy'></div>
+    <div class='overlayy'>
+      <div class='welcome'>UPDATING BLOG</div>
+                      <div class='subtitle'>Mistakes? we get it.... edit your blog post below.
+                        
+                      </div>
+      <div class='input-fields'>
+
+										<form action="/blogs/editblogs/{{blog._id}}" class='input-line full-width' id="form" method="POST" enctype="multipart/form-data">
+
+
+                        <input  class='input-line full-width' name="title" id="name" type="text" placeholder="BLOG TITLE" value="{{blog.title}}">
+                        {{!-- <input  class='input-line full-width' name="interest" id="name" type="text" placeholder="TOPIC INTEREST"> --}}
+                        <input  class='input-line' type="file" name="blogphoto" placeholder="BLOG IMAGE">
+                                  {{!-- <input class='input-line full-width' name="message" id="message" type="text" placeholder="BLOG POST MESSAGE"> --}}
+
+
+
+				<textarea  placeholder="{{blog.message}}" name="message" id="message" type="text" class='input-line full-width'>{{blog.message}}</textarea>
+
+
+
+                    <button class='ghost-round full-width' id="submit" type="submit" value="POST YOUR BLOG">POST YOUR BLOG</button>
+                      </form>
+                      </div>
+     </div>
+  </div>
+  
+</div>
