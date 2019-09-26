@@ -596,7 +596,7 @@ input {
 
 input:hover {
     background: rgba(255, 255, 255, 0.15);
-    color: #fff;
+    color: rgb(20, 20, 20);
     -webkit-transition: all .2s ease;
     transition: all .2s ease;
 }
@@ -675,12 +675,12 @@ button:focus {
     background: none;
     margin-bottom: 10px;
     line-height: 2.4em;
-    color: #fff;
+    color: rgb(27, 27, 27);
     font-family: roboto;
     font-weight: 300;
     letter-spacing: 0px;
     letter-spacing: 0.02rem;
-    font-size: 12px;
+    font-size: 16px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.65);
     -webkit-transition: all .2s ease;
     transition: all .2s ease;
@@ -692,7 +692,7 @@ button:focus {
 
 .input-fields {
     margin-top: 25px;
-    height: 300px;
+    // height: 300px;
 }
 
 .container {
@@ -788,7 +788,7 @@ button:focus {
 
 .windoww {
     z-index: 100;
-    color: #fff;
+    // color: #fff;
     font-family: roboto;
     position: relative;
     display: -webkit-box;
@@ -798,7 +798,7 @@ button:focus {
     -webkit-flex-flow: column;
     -ms-flex-flow: column;
     flex-flow: column;
-    box-shadow: 0px 15px 50px 10px rgba(0, 0, 0, 0.2);
+    // box-shadow: 0px 15px 50px 10px rgba(0, 0, 0, 0.2);
     box-sizing: border-box;
     height: 560px;
     // background: url('../images/Screen\ Shot\ 2019-09-25\ at\ 7.21.13\ PM.png') top left no-repeat;
@@ -836,6 +836,19 @@ button:focus {
     margin: auto;
     width: 100%;
     height: 360px;
+    z-index: 1;
+    opacity: 0.1;
+    background: url('../images/Image\ from\ iOS.png') left no-repeat;
+    background-size: cover;
+}
+
+.bold-linee {
+    background: #e7e7e7;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    margin: auto;
+    width: 100%;
     z-index: 1;
     opacity: 0.1;
     background: url('../images/Image\ from\ iOS.png') left no-repeat;
@@ -891,7 +904,7 @@ a {
     grid-gap: 4rem;
     padding: 4rem;
     margin: 0 auto;
-    width: max-content;
+    // width: max-content;
     background: radial-gradient(circle at 50% 0, rgba(255, 0, 0, .5), rgba(255, 0, 0, 0) 70.71%), radial-gradient(circle at 6.7% 75%, rgba(0, 0, 255, .5), rgba(0, 0, 255, 0) 70.71%), radial-gradient(circle at 93.3% 75%, rgba(0, 255, 0, .5), rgba(0, 255, 0, 0) 70.71%) beige;
 }
 
@@ -908,14 +921,14 @@ a {
     padding: 1em;
     /*margin: 2em;*/
     display: flex;
-    align-items: flex-end;
+    // align-items: flex-end;
     background-size: cover;
     background-position: center;
     box-shadow: 0 0 5em -1em black;
     transition: all, var(--transition-time);
     position: relative;
     overflow: hidden;
-    border: 10px solid #ccc;
+    border: 2px solid rgb(19, 19, 19);
     text-decoration: none;
 }
 
@@ -1167,4 +1180,18 @@ a {
         width: 100%;
         padding: 0;
     }
+}
+
+////////////////////////////////////////////////////////
+////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+textarea {
+    width: 100%;
+    height: 250px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #e00000;
+    resize: none;
 }
