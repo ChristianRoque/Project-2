@@ -125,7 +125,13 @@ router.get('/settings', (req, res, next) => {
     }
 });
 
-router.post('/settings', (req, res, next) => {
+router.post('/settings', uploadCloud.array('photo', 2), (req, res, next) => {
+
+
+    const imgPath = req.files[0].url;
+    const coverPath = req.files[1].url;
+
+
     const username = req.body.username;
     const password = req.body.password;
     const email = req.body.email;
@@ -137,13 +143,15 @@ router.post('/settings', (req, res, next) => {
     User.findByIdAndUpdate(req.user._id, {
         username: username,
         email: email,
-        profilePic: profilePic,
+        profilePic: imgPath,
         theme: theme,
         blogURL: blogurl,
-        coverPic: coverPic
+        coverPic: coverPath
     }).then((well) => {
         res.redirect('/profile');
-    });
+    }).catch((error) => {
+        next(error)
+    })
 });
 
 router.get('/profile/:userBlog', (req, res, next) => {
