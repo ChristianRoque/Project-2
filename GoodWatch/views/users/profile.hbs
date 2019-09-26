@@ -1,5 +1,19 @@
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div class="container">
   <img src="{{User.coverPic}}"class="profile"></img>
   </header>
@@ -28,7 +42,7 @@
         <p class="desc">Hi ! My name is {{User.username}} {{User.about}}</p>
         <div>
           <form action="/follow-user/{{User._id}}" method="POST">
-          <button type="submit">Follow</button>>
+          <button type="submit">Follow</button>
           </form>
         </div>
 
@@ -90,4 +104,3 @@
       </div>
   </main>
 </div>
-

@@ -109,7 +109,6 @@ router.get('/profile', (req, res, next) => {
                     }
                 });
             });
-            console.log(user.blogs);
             if (req.user._id) {
                 res.render('users/profile', { User: user });
             } else {
@@ -153,12 +152,13 @@ router.get('/profile/:userBlog', (req, res, next) => {
         });
 });
 
-// router.post('/follow-user/:id', (req, res, next) => {
-//     let userid = req.params.id;
-//     User.findByIdAndUpdate(userid, { $push: { followers: req.user } }).then((user) => {
-//         res.redirect(`/profile/${user.blogURL}`, { User: user });
-//     });
-// });
+router.post('/follow-user/:id', (req, res, next) => {
+    let userid = req.params.id;
+    console.log(userid);
+    User.findByIdAndUpdate(userid, { $push: { followers: req.user } }).then((user) => {
+        res.redirect(`/profile/${user.blogURL}`);
+    });
+});
 
 router.post('/delete-account', (req, res, next) => {
     User.findByIdAndDelete(req.user);
