@@ -12,7 +12,12 @@
 <p>Interest:</p>
 <h2>{{theBlog.interest}}</h2>
 
-<p>Comments:</p>
+<h2>Comments:</h2>
+{{#each theBlog.comments}}
+{{this.message}}
+<a href="/profile/{{this.author.blogURL}}">{{this.author.username}}</a>
+<img src="{{this.author.profilePic}}" alt="">
+{{/each}}
 
 {{#each theBlog.comments}}
 <p>{{this.message}}</p>

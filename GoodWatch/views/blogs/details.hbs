@@ -6,6 +6,14 @@
 <p>Message:</p>
 <h2>{{theBlog.message}}</h2>
 
+<h2>Comments:</h2>
+{{#each theBlog.comments}}
+{{this.message}}
+<a href="/profile/{{this.author.blogURL}}">{{this.author.username}}</a>
+<img src="{{this.author.profilePic}}" alt="">
+{{/each}}
+
+
 <p>Author:</p>
 <a href="/profile/{{theBlog.author.blogURL}}"><h2>{{theBlog.author.username}}</h2></a>
 

@@ -22,7 +22,7 @@ router.get('/blogs/:id', (req, res, next) => {
 
 	Blog.findById(id)
 		.populate('author')
-		.populate('comments')
+		.populate({ path: 'comments', populate: { path: 'author' } })
 		.then((blogObject) => {
 			res.render('blogs/details', { theBlog: blogObject });
 		})
@@ -145,13 +145,16 @@ router.get('/myblogs', (req, res, next) => {
 router.get('/myblog/:id', (req, res, next) => {
 	let id = req.params.id;
 	if (req.user) {
-		Blog.findById(id).populate('author').populate('comments').then((blog) => {
-			if (req.user._id.equals(blog.author._id)) {
-				res.render('blogs/mydetails', { theBlog: blog });
-			} else {
-				res.redirect(`/blogs/${blog._id}`);
-			}
-		});
+		Blog.findById(id)
+			.populate('author')
+			.populate({ path: 'comments', populate: { path: 'author' } })
+			.then((blog) => {
+				if (req.user._id.equals(blog.author._id)) {
+					res.render('blogs/mydetails', { theBlog: blog });
+				} else {
+					res.redirect(`/blogs/${blog._id}`);
+				}
+			});
 	} else {
 		res.redirect('/login');
 	}
