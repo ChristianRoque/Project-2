@@ -1,19 +1,20 @@
-<div class="login">
-	<header>CREATE ACCOUNT</header>
-      
-<form action ="./signup"id="form" class="topBefore"method="POST" enctype="multipart/form-data" >
-
-      <input  name="username" id="name" type="text" placeholder="NAME">
-	<input  name="email" id="email" type="text" placeholder="E-MAIL">
-      <input  name="blogURL" id="blogURL" type="text" placeholder="BLOG-URL">
-      <label> Profile </label>
-      <input  type="file" name="photo">
-      <label> Cover </label>
-      <input  type="file" name="photo">
-      <input  name="password" id="password" type="text" placeholder="PASSWORD">
-      <input  name="theme" id="theme" type="text" placeholder="THEME">
-      <input  id="submit" type="submit" value="SIGNUP">
-
-</form>
+ <div class='bold-line'></div>
+<div class='container'>
+  <div class='window'>
+    <div class='overlay'></div>
+    <div class='content'>
+      <div class='welcome'>Hello There!</div>
+      <div class='subtitle'>We're almost done. Before using our services you need to create an account.</div>
+      <div class='input-fields'>
+            <form action ="./signup"id="form" class='input-line full-width'method="POST" enctype="multipart/form-data">
+             <input  class='input-line full-width' name="username" id="name" type="text" placeholder="NAME">
+            <input  class='input-line full-width' name="email" id="email" type="email" placeholder="E-MAIL">
+            <input  class='input-line full-width' name="password" id="password" type="text" placeholder="PASSWORD">
+            <input  class='input-line full-width' type="file" name="photo" placeholder="PROFILE IMAGE">
+            <input  class='input-line full-width' type="file" name="photo" placeholder="BACKGROUND IMAGE">
+      </div>
+      <div class='spacing'>Already have an account? <a href="#"class='highlight'>Login</a></div>
+      <div> <input class='ghost-round full-width' id="submit" type="submit" value="SIGNUP"></div>
+     </form>
+  </div>
 </div>
-

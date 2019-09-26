@@ -1,8 +1,21 @@
-<form  id="form" class="topBefore"action="/login" method="POST">
-      <h6 >Username</h6>
-      <input type="text" name="username">
-      <h6>Password:</h6> 
-      <input type="text" name="password">
-      <button type="submit">Submit</button>
- </form>
+<div class='bold-line'></div>
+<div class='container'>
+  <div class='window'>
+    <div class='overlay'></div>
+    <div class='content'>
+      <div class='welcome'>VIEWS</div>
+      <div class='subtitle'>Creative space for Creators</div>
 
+ <form  id="form" class="topBefore" action="/login" method="POST">
+      <div class='input-fields'>
+        <input  class='input-line full-width' type="text" placeholder="Username" name="username" >
+        {{!-- <input type='password' placeholder='Password' class='input-line full-width'></input> --}}
+        <input class='input-line full-width' type="text" placeholder="Password" name="password">
+      </div>
+      <div class='spacing'>Don't have an account? <a href="/signup"class='highlight'>Sign up</a></div>
+        <button class='input-line full-width' type="submit">Login</button>
+</form>
+
+    </div>
+  </div>
+</div>

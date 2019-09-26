@@ -1,12 +1,11 @@
 <form action="/blogs/editblogs/{{blog._id}}" method="POST" >
-	imageURL 
-  <input type="text" name="imageURL">
-	interest 
-  <input type="text" name="interest">
-
-	title 
-	<input type="text" name="title">
-	message 
-	<input type="text" name="message">
+	imageURL: 
+  <input type="text" name="imageURL" value="{{blog.imageURL}}">
+	interest:
+  <input type="text" name="interest" value="{{blog.interest}}">
+	title:
+	<input type="text" name="title" value="{{blog.title}}">
+	message:
+	<input type="text" name="message" value="{{blog.message}}">
 	<button>Submit</button>
 </form>

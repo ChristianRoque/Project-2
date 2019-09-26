@@ -10,7 +10,6 @@ const uploadCloud = require('../config/cloudinary.js');
 router.get('/blogs', (req, res, next) => {
 	Blog.find()
 		.then((allBlogs) => {
-			console.log(allBlogs);
 			res.render('blogs/index', { blogs: allBlogs });
 		})
 		.catch((err) => {
@@ -55,9 +54,7 @@ router.post('/new-blog', uploadCloud.single('blogphoto'), (req, res, next) => {
 			date: new Date()
 		})
 			.then((blog) => {
-				User.findByIdAndUpdate(req.user._id, { $push: { blogs: blog._id } }).then((user) => {
-					console.log(user);
-				});
+				User.findByIdAndUpdate(req.user._id, { $push: { blogs: blog._id } }).then((user) => {});
 				res.redirect('/blogs');
 			})
 			.catch((err) => {
@@ -82,17 +79,14 @@ router.post('/blogs/delete/:id', (req, res, next) => {
 
 router.get('/blogs/editblog/:id', (req, res, next) => {
 	let id = req.params.id;
-
-	if (req.user._id == id) {
-		let id = req.params.id;
-		Blog.findById(id)
-			.then((theBlog) => {
-				res.render('blogs/edit', { blog: theBlog });
-			})
-			.catch((err) => {
-				next(err);
-			});
-	}
+	Blog.findById(id)
+		.then((blog) => {
+			console.log();
+			res.render('blogs/edit', { blog: blog });
+		})
+		.catch((err) => {
+			next(err);
+		});
 });
 
 router.post('/blogs/editblogs/:id', (req, res, next) => {
@@ -101,14 +95,12 @@ router.post('/blogs/editblogs/:id', (req, res, next) => {
 	let interest = req.body.interest;
 	let title = req.body.title;
 	let message = req.body.message;
-	let author = req.user.username;
 
 	Blog.findByIdAndUpdate(id, {
 		imageURL: imageURL,
 		interest: interest,
 		title: title,
 		message: message,
-		author: author,
 		date: new Date()
 	})
 		.then(() => {
@@ -117,6 +109,25 @@ router.post('/blogs/editblogs/:id', (req, res, next) => {
 		.catch((err) => {
 			next(err);
 		});
+});
+
+router.get('/myblogs', (req, res, next) => {
+	if (req.user) {
+		User.findById(req.user._id).populate('blogs').then((user) => {
+			console.log(user);
+			res.render('blogs/myblogs', { User: user });
+		});
+	} else {
+		res.redirect('/login');
+	}
+});
+
+router.get('/myblog/:id', (req, res, next) => {
+	let id = req.params.id;
+
+	Blog.findById(id).populate('author').populate('comments').then((blog) => {
+		res.render('blogs/mydetails', { theBlog: blog });
+	});
 });
 
 module.exports = router;
