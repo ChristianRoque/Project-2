@@ -71,12 +71,15 @@
                         <form action="/comment-create/{{this._id}}" method="POST">
                         <input type="text" name="message">
                         <input type="hidden" name="blogSite" value="{{this.author}}"`>
-                        <button type="submit" >Submit</button>
+                        <button type="submit" >Comment</button>
                         </form>
                         {{#each this.comments}}
-                        <p>{{this.author.username}}</p>
-                             <p>{{this.message}}</p>
-                             <img id="commentPic" src="{{this.author.profilePic}}" alt="">
+                        
+                             <div class="comment-box">
+                   
+                             <p><img id="commentPic" src="{{this.author.profilePic}}" alt=""> {{this.message}} </p>
+
+                             </div>
                               {{#if this.mine}}
                               <form action="/delete-comment/{{this._id}}" method="POST" >
                               <button>Delete</button>

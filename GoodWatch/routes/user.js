@@ -105,6 +105,7 @@ router.get('/profile', (req, res, next) => {
 				arr.forEach(function(blogs) {
 					let arr2 = blogs.comments;
 					arr2.forEach(function(comment) {
+						console.log(comment.author);
 						if (comment.author.equals(req.user._id)) {
 							comment.mine = true;
 							// now we are attaching a .mine key to all the books who have a creator equal to currently logged in user's ID

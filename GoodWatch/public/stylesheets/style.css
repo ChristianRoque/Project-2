@@ -1079,22 +1079,6 @@ textarea {
   width: 80%;
   margin-left: 10%; }
 
-.background {
-  position: relative;
-  background-color: transparent;
-  background: white url(../images/background.png);
-  height: 100vh;
-  background-size: 600px;
-  background-position: 0 0;
-  background-repeat: repeat-y repeat-x;
-  animation: animate 10000s linear infinite; }
-
-@keyframes animate {
-  from {
-    background-position: 0 0; }
-  to {
-    background-position: 50000% 50000%; } }
-
 @media screen and (max-width: 450px) {
   .info {
     display: block;
