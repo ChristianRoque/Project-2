@@ -74,6 +74,7 @@
                         <button type="submit" >Submit</button>
                         </form>
                         {{#each this.comments}}
+                        <p>{{this.author.username}}</p>
                              <p>{{this.message}}</p>
                              <img id="commentPic" src="{{this.author.profilePic}}" alt="">
                               {{#if this.mine}}
