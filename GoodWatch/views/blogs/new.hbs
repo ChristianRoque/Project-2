@@ -12,14 +12,14 @@
                       </div>
       <div class='input-fields'>
 
-                    <form action="/new-blog"  class='input-line full-width' id="form" method="POST" enctype="multipart/form-data">
-                        <input  class='input-line full-width' name="title" id="name" type="text" placeholder="BLOG TITLE">
+                    <form action="/new-blog"  class='input-lineeee full-width' id="form" method="POST" enctype="multipart/form-data">
+                        <input  class='input-lineeee full-width' name="title" id="name" type="text" placeholder="BLOG TITLE">
                         {{!-- <input  class='input-line full-width' name="interest" id="name" type="text" placeholder="TOPIC INTEREST"> --}}
-                        <input  class='input-line' type="file" name="blogphoto" placeholder="BLOG IMAGE">
+                        <input id='ghost-roundd' class='input-lineeee' type="file" name="blogphoto" placeholder="BLOG IMAGE">
                                   {{!-- <input class='input-line full-width' name="message" id="message" type="text" placeholder="BLOG POST MESSAGE"> --}}
-                        <select name="interest">
+                        <select class='ghost-roundd' name="interest">
                         <br>      
-                        <option value="" selected disabled > Please Select One </option>
+                        <option value="" selected disabled > Interest/Topics </option>
 
                         {{!-- the array of authors gets pulled from the Database  --}}
                         <option value="Health"> Health </option>
@@ -34,8 +34,8 @@
                         </select>
 
 
-                     <textarea  placeholder="BLOG MESSAGE HERE....." name="message" id="message" type="text" class='input-line full-width'></textarea>
-                    <button class='ghost-round full-width' id="submit" type="submit" value="POST YOUR BLOG">POST YOUR BLOG</button>
+                     <textarea  placeholder="BLOG MESSAGE HERE....." name="message" id="message" type="text" class='input-lineeee full-width'></textarea>
+                    <button class='ghost-roundd full-width' id="submit" type="submit" value="POST YOUR BLOG">POST YOUR BLOG</button>
                       </form>
                       </div>
      </div>
