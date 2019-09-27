@@ -36,7 +36,7 @@ router.get('/new-blog', (req, res, next) => {
 });
 
 router.post('/new-blog', uploadCloud.single('blogphoto'), (req, res, next) => {
-    const imgPath = sreq.file.url;
+    const imgPath = req.file.url;
     let imageURL = req.body.imageURL;
     let interest = req.body.interest;
     let title = req.body.title;
