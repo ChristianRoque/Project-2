@@ -2,7 +2,9 @@
 <div class="'bold-line'">
   <img src="{{User.coverPic}}"class="profile"></img>
   </header>
+  <div class="page-content">
   <main>
+    <div class="page-content">
     <div class="row">
       <div class="left col-lg-4">
         <div class="photo-left">
@@ -11,35 +13,27 @@
         <h4 class="name">{{User.username}}</h4>
         <p class="info">{{User.email}}</p>
         <div class="stats row">
-          <div class="stat col-xs-4" style="padding-right: 50px;">
-            <p class="number-stat">3,619</p>
-            <p class="desc-stat">Followers</p>
-          </div>
-          <div class="stat col-xs-4">
-            <p class="number-stat">42</p>
-            <p class="desc-stat">Following</p>
-          </div>
-          <div class="stat col-xs-4" style="padding-left: 50px;">
-            <p class="number-stat">38</p>
-            <p class="desc-stat">Blogs</p>
+          <div class="stat col-xs-4" >
+            <p class="number-stat" id="myBtn" >  <a class="followers-btn" href="#">{{User.followers.length}}    Followers</a> </p>
+          </div>  <a href=""></a>
+          <div class="stat col-xs-4" style="padding-left:10px;">
+            <p class="number-stat">{{User.blogs.length}} Blogs</p>
           </div>
         </div>
-        <p class="desc">Hi ! My name is {{User.username}} {{User.about}}</p>
-        <div>
+                <div>
           <form action="/follow-user/{{User._id}}" method="POST">
           {{#unless Following}}
           <button type="submit">Follow</button>
           {{/unless}}
           </form>
         </div>
+        <p class="desc">Hi ! My name is {{User.username}} {{User.about}}</p>
         {{#if Following }}
         <button type="submit">Following</button>
         {{/if}}
 
 
 
-
-              <button id="myBtn">Open Modal</button>
                 <!-- The Modal -->
             <div id="myModal" class="modal">
                   <!-- Modal content -->
@@ -103,5 +97,7 @@
           {{/each}}
         </div>
       </div>
+      </div>
   </main>
+  </div>
 </div>

@@ -96,27 +96,32 @@ router.get('/logout', (req, res, next) => {
 // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% USER PAGES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 router.get('/profile', (req, res, next) => {
-	User.findById(req.user._id)
-		.populate({ path: 'blogs', populate: { path: 'comments' } })
-		.populate('followers')
-		.then((user) => {
-			let arr = user.blogs;
-			arr.forEach(function(blogs) {
-				let arr2 = blogs.comments;
-				arr2.forEach(function(comment) {
-					if (comment.author.equals(req.user._id)) {
-						comment.mine = true;
-						// now we are attaching a .mine key to all the books who have a creator equal to currently logged in user's ID
-						// and also, if currently logged in user isAdmin, were attaching it to all of them
-					}
+	if (req.user) {
+		User.findById(req.user._id)
+			.populate({ path: 'blogs', populate: { path: 'comments', populate: { path: 'author' } } })
+			.populate('followers')
+			.then((user) => {
+				let arr = user.blogs;
+				arr.forEach(function(blogs) {
+					let arr2 = blogs.comments;
+					arr2.forEach(function(comment) {
+						if (comment.author.equals(req.user._id)) {
+							comment.mine = true;
+							// now we are attaching a .mine key to all the books who have a creator equal to currently logged in user's ID
+							// and also, if currently logged in user isAdmin, were attaching it to all of them
+						}
+					});
 				});
+				if (req.user._id) {
+					console.log(user.blogs.length);
+					res.render('users/profile', { User: user });
+				} else {
+					res.redirect('/login');
+				}
 			});
-			if (req.user._id) {
-				res.render('users/profile', { User: user });
-			} else {
-				res.redirect('/login');
-			}
-		});
+	} else {
+		res.redirect('/login');
+	}
 });
 
 router.get('/settings', (req, res, next) => {
