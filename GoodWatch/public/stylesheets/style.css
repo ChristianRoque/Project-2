@@ -59,10 +59,9 @@ body {
   box-shadow: 0 8px 20px 0px rgba(0, 0, 0, 0.125); }
 
 .container {
-  max-width: 1250px;
-  margin: 30px auto 30px;
+  max-width: 100%;
   padding: 0 !important;
-  width: 90%;
+  width: 100%;
   background-color: radial-gradient(circle at 50% 0, rgba(255, 0, 0, 0.5), rgba(255, 0, 0, 0) 70.71%), radial-gradient(circle at 6.7% 75%, rgba(0, 0, 255, 0.5), rgba(0, 0, 255, 0) 70.71%), radial-gradient(circle at 93.3% 75%, rgba(0, 255, 0, 0.5), rgba(0, 255, 0, 0) 70.71%) beige;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.1); }
 
@@ -81,7 +80,8 @@ body {
   background-size: cover;
   background-color: white;
   height: 250px;
-  width: 80%; }
+  width: 80%;
+  border-radius: 14px 14px 0px 0px; }
 
 .profile i {
   position: relative;
@@ -1073,5 +1073,49 @@ textarea {
 .followers-container {
   display: flex;
   flex-direction: column; }
+
+.page-content {
+  background-color: white;
+  width: 80%;
+  margin-left: 10%; }
+
+.background {
+  position: relative;
+  background-color: transparent;
+  background: white url(../images/background.png);
+  height: 100vh;
+  background-size: 600px;
+  background-position: 0 0;
+  background-repeat: repeat-y repeat-x;
+  animation: animate 10000s linear infinite; }
+
+@keyframes animate {
+  from {
+    background-position: 0 0; }
+  to {
+    background-position: 50000% 50000%; } }
+
+@media screen and (max-width: 450px) {
+  .info {
+    display: block;
+    text-align: center; }
+  .info h1 {
+    margin: 0; }
+  .page-content {
+    background-color: white;
+    width: 100%;
+    margin-left: 0%;
+    border-radius: 0 0 15px 14px; }
+  .profile {
+    background: #eee;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-color: white;
+    height: 250px;
+    width: 100%; } }
+
+.followers-btn:hover {
+  text-decoration: none; }
 
 /*# sourceMappingURL=style.css.map */
